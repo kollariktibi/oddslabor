@@ -1,0 +1,99 @@
+ADATKEZELÉSI TÁJÉKOZTATÓ
+Sportfogadási tippek / digitális tartalom és előfizetéses szolgáltatás (B2C)
+
+Hatálybalépés napja: [ÉÉÉÉ.HH.NN]
+Utolsó módosítás: [ÉÉÉÉ.HH.NN]
+
+Jelen Adatkezelési tájékoztató („Tájékoztató”) a Szolgáltató által nyújtott szolgáltatásokhoz kapcsolódó személyes adatkezeléseket mutatja be, összhangban az Általános Szerződési Feltételekkel („ÁSZF”).
+
+1. ADATKEZELŐ ADATAI
+Adatkezelő: [Cégnév / Egyéni vállalkozó neve]  
+Székhely: [székhely]  
+E-mail: [e-mail]  
+Telefonszám: [telefon – ha van]
+
+2. IRÁNYADÓ JOGSZABÁLYOK
+- (EU) 2016/679 rendelet (GDPR)
+- 2011. évi CXII. törvény az információs önrendelkezési jogról és az információszabadságról (Infotv.)
+- 2001. évi CVIII. törvény az elektronikus kereskedelmi szolgáltatásokról
+- 2008. évi XLVIII. törvény a gazdasági reklámtevékenységről (Grt.)
+- vonatkozó fogyasztóvédelmi és számviteli jogszabályok
+
+3. FOGALMAK
+A jelen Tájékoztatóban használt fogalmak megegyeznek az ÁSZF-ben meghatározott fogalmakkal.
+
+4. AZ ADATKEZELÉS ALAPELVEI
+Az Adatkezelő a személyes adatokat a GDPR 5. cikke szerint, jogszerűen, tisztességesen és átlátható módon, kizárólag meghatározott célból, a cél eléréséhez szükséges mértékben, pontosan és naprakészen, valamint a szükséges ideig kezeli.
+
+5. KEZELT ADATOK, CÉL, JOGALAP, MEGŐRZÉSI IDŐ
+
+5.1. Regisztráció és előfizetés  
+Kezelt adatok: név, e-mail cím, jelszó (titkosítva), számlázási adatok  
+Cél: felhasználói fiók létrehozása, szerződés teljesítése  
+Jogalap: GDPR 6. cikk (1) b)  
+Megőrzés: a szerződés megszűnését követően 5 év
+
+5.2. Számlázás  
+Kezelt adatok: név, cím, számlaadatok  
+Cél: számlázás, könyvelés  
+Jogalap: GDPR 6. cikk (1) c)  
+Megőrzés: 8 év
+
+5.3. Kapcsolattartás, ügyfélszolgálat  
+Kezelt adatok: név, e-mail, üzenet tartalma  
+Cél: ügyfélkommunikáció, panaszkezelés  
+Jogalap: GDPR 6. cikk (1) b) és (1) f)  
+Megőrzés: 1–3 év
+
+5.4. Hírlevél, marketing (ha van)  
+Kezelt adatok: e-mail cím  
+Cél: tájékoztatás, marketing  
+Jogalap: GDPR 6. cikk (1) a)  
+Megőrzés: hozzájárulás visszavonásáig
+
+5.5. Technikai adatok, naplózás  
+Kezelt adatok: IP-cím, belépési időpont, eszköz- és böngészőadatok  
+Cél: informatikai biztonság, visszaélés-megelőzés, a Szolgáltató jogos érdekeinek érvényesítése  
+Jogalap: GDPR 6. cikk (1) f)  
+Megőrzés: legfeljebb 12 hónap
+
+5.6. Tartalomvédelmi technológiák (vízjelezés, fingerprinting)
+
+Az Adatkezelő jogos érdekeinek védelme érdekében – különösen a Tartalom jogosulatlan továbbadásának, megosztásának, többszörözésének és üzletszerű felhasználásának megelőzése és bizonyítása céljából – technikai azonosítási megoldásokat alkalmazhat.
+
+Ezek körébe tartozhat különösen:
+- digitális vízjelezés (látható vagy rejtett),
+- technikai ujjlenyomat (fingerprint) képzése az eszköz, böngésző és hozzáférési paraméterek kombinációja alapján.
+
+Az ilyen adatkezelés:
+a) kizárólag a Tartalom védelmét és szerződésszegések bizonyítását szolgálja,  
+b) nem irányul marketing célú nyomon követésre,  
+c) nem teszi lehetővé a Felhasználó más weboldalakon történő követését,  
+d) nem jár automatizált döntéshozatallal vagy profilalkotással,  
+e) a GDPR 6. cikk (1) f) pontja szerinti jogos érdeken alapul.
+
+Az Adatkezelő érdekmérlegelési tesztet végez, és biztosítja, hogy az alkalmazott technológiák arányosak és a cél eléréséhez szükséges mértékűek legyenek.
+
+6. ADATTOVÁBBÍTÁS, ADATFELDOLGOZÓK
+Az Adatkezelő az adatokat kizárólag a szolgáltatás működtetéséhez szükséges adatfeldolgozóknak továbbítja (pl. tárhelyszolgáltató, számlázó, fizetési szolgáltató).
+
+7. HARMADIK ORSZÁGBA TOVÁBBÍTÁS
+Az Adatkezelő alapvetően nem továbbít adatot az Európai Unión kívülre. Esetleges adattovábbítás kizárólag a GDPR V. fejezete szerinti garanciák mellett történik.
+
+8. ADATBIZTONSÁG
+Az Adatkezelő megfelelő technikai és szervezési intézkedéseket alkalmaz (hozzáférés-korlátozás, titkosítás, naplózás).
+
+9. AZ ÉRINTETTEK JOGAI
+Az érintett jogosult a GDPR 15–21. cikkei szerinti jogokat gyakorolni (tájékoztatás, helyesbítés, törlés, korlátozás, adathordozhatóság, tiltakozás, hozzájárulás visszavonása).
+
+10. JOGORVOSLAT
+Az érintett panaszt tehet az Adatkezelőnél, a Nemzeti Adatvédelmi és Információszabadság Hatóságnál (NAIH), vagy bírósághoz fordulhat.
+
+11. COOKIE-K
+A Honlap cookie-kat alkalmazhat. A cookie-kezelés részleteit külön Cookie Tájékoztató tartalmazza.
+
+12. KAPCSOLAT AZ ÁSZF-FEL
+Jelen Tájékoztató az ÁSZF elválaszthatatlan melléklete, és azzal együtt értelmezendő.
+
+13. ZÁRÓ RENDELKEZÉSEK
+Az Adatkezelő jogosult a Tájékoztatót jogszabályváltozás vagy működési ok esetén módosítani. A módosítás a Honlapon történő közzététellel lép hatályba.

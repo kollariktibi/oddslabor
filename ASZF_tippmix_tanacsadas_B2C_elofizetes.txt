@@ -1,0 +1,131 @@
+ÁLTALÁNOS SZERZŐDÉSI FELTÉTELEK (ÁSZF)
+Sportfogadási tippek / sportesemény-elemzések / tanácsadói (információs) szolgáltatás – B2C előfizetés
+
+Hatálybalépés napja: [ÉÉÉÉ.HH.NN]
+Utolsó módosítás: [ÉÉÉÉ.HH.NN]
+Szolgáltatás elérhetősége: https://[domain]/  (a továbbiakban: „Honlap”)
+
+1. SZOLGÁLTATÓ ADATAI
+1.1. Szolgáltató neve: [Cégnév / Egyéni vállalkozó neve]
+1.2. Székhely: [székhely]
+1.3. Levelezési cím: [cím] (ha eltér)
+1.4. Cégjegyzékszám / nyilvántartási szám: [szám]
+1.5. Adószám: [szám]
+1.6. Képviselő: [név]
+1.7. E-mail: [e-mail]
+1.8. Telefonszám: [telefon] (ha van)
+1.9. Tárhelyszolgáltató (ha releváns): [név, cím, elérhetőség]
+
+2. FOGALMAK
+2.1. Fogyasztó: a Polgári Törvénykönyv (2013. évi V. törvény) szerinti fogyasztó.
+2.2. Megrendelő / Felhasználó: aki a Honlapon keresztül a Szolgáltató szolgáltatására előfizet vagy azt igénybe veszi.
+2.3. Szolgáltatás: digitális tartalom és/vagy digitális szolgáltatás keretében nyújtott sportesemény-elemzések, statisztikák, tippek, vélemények, edukációs anyagok, értesítések, hozzáférés zárt tartalmakhoz és minden kapcsolódó online funkció.
+2.4. Digitális tartalom / digitális szolgáltatás: a vonatkozó fogyasztóvédelmi szabályok szerinti digitális tartalom és digitális szolgáltatás.
+2.5. Előfizetés: időszakos (pl. havi) díjfizetéshez kötött hozzáférés a Szolgáltatáshoz.
+2.6. Tartalom: a Szolgáltató által a Szolgáltatás részeként közzétett összes szöveg, tipp, elemzés, adatbázis-jellegű összeállítás, grafika, kép, videó, dokumentum, know-how, módszertan, jelzésrendszer stb.
+
+3. AZ ÁSZF HATÁLYA, ELFOGADÁSA, AZ ÁSZF SZERZŐDÉS RÉSZÉVÉ VÁLÁSA
+3.1. Jelen ÁSZF a Honlapon keresztül nyújtott Szolgáltatás igénybevételére vonatkozik.
+3.2. Az ÁSZF a Megrendelő és a Szolgáltató között létrejövő szerződés elválaszthatatlan része. Az ÁSZF akkor válik a szerződés részévé, ha a Szolgáltató lehetővé tette, hogy a Megrendelő a szerződéskötést megelőzően megismerje, és a Megrendelő azt elfogadta.
+3.3. A Megrendelő a megrendelés/előfizetés véglegesítésével nyilatkozik arról, hogy az ÁSZF-et elolvasta, megértette és elfogadja.
+3.4. A Szolgáltató a Megrendelő kérésére az ÁSZF-et elektronikus úton megküldi vagy letölthető formában biztosítja.
+
+4. A SZOLGÁLTATÁS JOGI MINŐSÍTÉSE, ALAPVETŐ KIJELENTÉSEK
+4.1. A Szolgáltatás információs jellegű tanácsadói/elemző tartalomközlés. A Szolgáltatás nem fogadáskötés, nem közvetít fogadást, nem vesz át tétet, nem kezel pénzt fogadás céljára, és nem minősül szerencsejáték-szervezésnek.
+4.2. A Szolgáltató nem biztosít „biztos tippet”, nem garantál nyereséget, megtérülést vagy hozamot. A sportfogadás kockázatos tevékenység; a Megrendelő minden döntését kizárólag saját felelősségére hozza meg.
+4.3. A Szolgáltatás nem minősül befektetési tanácsadásnak, pénzügyi szolgáltatásnak, illetve nem minősül egyedi, a Megrendelő személyes körülményeire szabott szakmai tanácsadásnak.
+
+5. REGISZTRÁCIÓ, FELHASZNÁLÓI FIÓK, HOZZÁFÉRÉS
+5.1. A Szolgáltatás igénybevételéhez a Megrendelőnek regisztrálnia kell és a valóságnak megfelelő adatokat kell megadnia. A Megrendelő felel a megadott adatok helyességéért és naprakészen tartásáért.
+5.2. A hozzáférési adatok (jelszó, belépési link, meghívó, token stb.) bizalmasak; a Megrendelő köteles ezeket megőrizni és harmadik személy számára nem adhatja át.
+5.3. A Szolgáltató jogosult a hozzáférést felfüggeszteni vagy megszüntetni, ha (i) visszaélés gyanúja merül fel, (ii) a Megrendelő megsérti a jelen ÁSZF-et, (iii) jogszabály vagy hatósági döntés ezt indokolja, vagy (iv) a Szolgáltató jogos érdeke ezt feltétlenül szükségessé teszi.
+5.4. Korhatár: a Szolgáltatás csak 18. életévét betöltött személyeknek szól. A Megrendelő a regisztrációval/megrendeléssel kijelenti, hogy nagykorú.
+
+6. SZERZŐDÉSKÖTÉS ELEKTRONIKUS ÚTON, VISSZAIGAZOLÁS
+6.1. A szerződés elektronikus úton jön létre a Megrendelő megrendelésének és a Szolgáltató visszaigazolásának (vagy a hozzáférés biztosításának) időpontjában.
+6.2. A Szolgáltató a megrendelés beérkezését elektronikus úton visszaigazolja.
+6.3. A Szolgáltató törekszik arra, hogy a Szolgáltatás a megrendelés és sikeres fizetés után haladéktalanul elérhető legyen.
+
+7. ELŐFIZETÉSI MODELL, DÍJAK, SZÁMLÁZÁS, MEGÚJULÁS
+7.1. Az előfizetés időszakos díjfizetés mellett folyamatos hozzáférést biztosít a Szolgáltatáshoz az adott előfizetési időszakra.
+7.2. Díjak: az aktuális díjak, csomagok és tartalmi elemek a Honlapon kerülnek feltüntetésre. A díjak [bruttó/áfás/áfamentes] értékek (a számlázási jogállás szerint pontosítandó).
+7.3. Automatikus megújulás (ha alkalmazod): a Megrendelő kifejezett elfogadásával az előfizetés az adott időszak végén automatikusan megújul, és a díj a választott fizetési szolgáltatón keresztül levonásra kerül. A Megrendelő bármikor lemondhatja a megújulást a fiókjában vagy az ügyfélszolgálaton keresztül; a lemondás a már megfizetett időszakot nem érinti.
+7.4. Sikertelen díjfizetés esetén a Szolgáltató jogosult a hozzáférést felfüggeszteni. A Szolgáltató nem felel a fizetési szolgáltató vagy banki rendszer hibájáért.
+7.5. Próbaidő / akció (ha van): [feltételek]. Akciós időszakot követően a rendes díj lép életbe.
+
+8. TELJESÍTÉS, HOZZÁFÉRHETŐSÉG, TECHNIKAI FELTÉTELEK
+8.1. A Szolgáltató a Szolgáltatást online módon nyújtja. A hozzáféréshez internetkapcsolat és megfelelő eszköz szükséges.
+8.2. Karbantartás: a Szolgáltató jogosult a rendszer karbantartása érdekében a Szolgáltatást időlegesen szüneteltetni. A tervezett karbantartásról lehetőség szerint előzetes tájékoztatást ad.
+8.3. A Szolgáltató törekszik a folyamatos elérhetőségre, de nem garantálja a megszakításmentes működést (pl. harmadik fél szolgáltatása, internet, platformleállás).
+
+9. FOGYASZTÓI ELÁLLÁSI JOG ÉS ANNAK KIZÁRÁSA DIGITÁLIS TARTALOM ESETÉN
+9.1. A Megrendelőt – mint fogyasztót – főszabályként 14 napos elállási jog illeti meg távollévők között kötött szerződés esetén.
+9.2. Nem tárgyi adathordozón nyújtott digitális tartalom/digitális szolgáltatás esetén a fogyasztó elállási joga a jogszabályban meghatározott feltételek fennállása esetén kizárt.
+9.3. A Megrendelő kifejezetten hozzájárul ahhoz, hogy a Szolgáltató a teljesítést (hozzáférés biztosítását) az elállási határidő lejárta előtt megkezdje, és a Megrendelő tudomásul veszi, hogy a teljesítés megkezdését követően elveszíti elállási jogát.
+9.4. Ennek megfelelően, amennyiben a hozzáférés biztosításra került (a teljesítés megkezdődött), visszatérítésre főszabályként nincs lehetőség.
+
+10. DIGITÁLIS TARTALOM / DIGITÁLIS SZOLGÁLTATÁS SZERZŐDÉSSZERŰSÉGE, JOGORVOSLATOK
+10.1. A Szolgáltató a vonatkozó fogyasztóvédelmi szabályok szerint köteles a digitális tartalmat/szolgáltatást szerződésszerűen teljesíteni (megfelelőség, hibás teljesítés, kijavítás, csere, árleszállítás, szerződés megszüntetése – a jogszabályi keretek szerint).
+10.2. A Megrendelő köteles a hibát a felfedezést követően ésszerű időn belül jelezni a 1. pont szerinti elérhetőségen, és együttműködni a hiba kivizsgálásában (pl. eszköz, böngésző, képernyőkép).
+
+11. FELELŐSSÉGKIZÁRÁS ÉS FELELŐSSÉGKORLÁTOZÁS (SZOLGÁLTATÓ-VÉDŐ)
+11.1. A Megrendelő tudomásul veszi, hogy a tippek és elemzések eredménye bizonytalan; a Szolgáltató nem felel a Megrendelő fogadási döntéseiért, illetve azok eredményéért.
+11.2. A Szolgáltató nem felel a Megrendelőnél felmerülő elmaradt haszonért, közvetett vagy következményi károkért, illetve olyan veszteségekért, amelyek a tippek értelmezéséből, kockázatvállalásból, fogadóirodai szabályokból vagy odds-módosulásból erednek.
+11.3. A Szolgáltató szerződésszegéséért való felelősségét – a jogszabályi korlátok között – a Megrendelő által az adott elszámolási időszakban ténylegesen megfizetett előfizetési díj összegére korlátozza.
+11.4. A felelősségkorlátozás nem terjed ki a szándékosan okozott, illetve az emberi életet, testi épséget vagy egészséget megkárosító szerződésszegésre.
+
+12. TILOS FELHASZNÁLÁS, TIPPEK TOVÁBBADÁSA, MEGOSZTÁSA, „CSOPORTOS ELŐFIZETÉS”
+12.1. A Tartalom kizárólag a Megrendelő személyes használatára szolgál. Tilos a Tartalom bármely részének:
+a) továbbadása, megosztása (nyilvános vagy zárt csoportban is),
+b) közzététele, újraközlése, másolása,
+c) értékesítése, előfizetés „szétosztása”,
+d) képernyőképek, screen-record, bot/automatizált lekérés útján történő tömeges mentése,
+e) bármely, a Szolgáltató üzleti érdekeit sértő módon történő felhasználása.
+12.2. A Szolgáltató jogosult technikai és szervezési intézkedéseket alkalmazni a visszaélések megelőzése és bizonyítása érdekében (pl. több eszközös belépés figyelése, IP-azonosítás, vízjelezés).
+12.3. Szerződésszegés esetén a Szolgáltató jogosult azonnali hatállyal (i) a hozzáférést megszüntetni, (ii) a Megrendelő fiókját felfüggeszteni, (iii) polgári jogi igényt érvényesíteni.
+12.4. Kötbér (opcionális, erősen javasolt): jogosulatlan továbbadás/megjelentetés esetén a Megrendelő [összeg] Ft kötbér megfizetésére köteles jogsértésenként, amely nem érinti a Szolgáltató további kárigényét.
+
+13. SZELLEMI TULAJDON, SZERZŐI JOG, ADATBÁZIS-JELLEGŰ TARTALOM
+13.1. A Honlapon elérhető Tartalom szerzői jogi védelem alatt áll. A Szolgáltató (vagy jogosult) minden jogot fenntart.
+13.2. A Megrendelő kizárólag személyes, nem üzleti célú felhasználásra szerez korlátozott, nem kizárólagos, nem átruházható hozzáférési jogot az előfizetés időtartamára.
+13.3. A Tartalom összeválogatása, elrendezése, szerkesztése adatbázis/gyűjteményes mű jellegű védelemben is részesülhet. Jogosulatlan felhasználás esetén a Szolgáltató minden jogi lépést megtehet.
+
+14. MAGATARTÁSI SZABÁLYOK, FELELŐS JÁTÉK (DISZKLÉMER)
+14.1. A Szolgáltatás nem ösztönöz felelőtlen szerencsejátékra. A Megrendelő köteles saját pénzügyi helyzetéhez mérten, felelősen dönteni.
+14.2. A Szolgáltató jogosult a visszaélésszerű magatartást tanúsító Megrendelőt kizárni (pl. fenyegetés, zaklatás, csalás, chargeback-visszaélés).
+
+15. PANASZKEZELÉS
+15.1. A Megrendelő panaszát a 1. pontban megadott e-mail címen nyújthatja be.
+15.2. A Szolgáltató a panaszokat ésszerű határidőn belül kivizsgálja, és a Megrendelőt írásban tájékoztatja.
+
+16. VITARENDEZÉS (BÉKÉLTETÉS, ODR, BÍRÓSÁG)
+16.1. A Megrendelő fogyasztói jogvita esetén jogosult békéltető testülethez fordulni. A Szolgáltató a vonatkozó fogyasztóvédelmi szabályok szerint együttműködik.
+16.2. Online adásvételi/szolgáltatási szerződésből eredő fogyasztói jogvita esetén az Európai Unió online vitarendezési platformja (ODR) is igénybe vehető.
+16.3. Bírósági igényérvényesítés esetén az általános hatáskörrel és illetékességgel rendelkező magyar bíróság jár el.
+
+17. ADATVÉDELEM, SÜTIK (COOKIE)
+17.1. A Szolgáltató a személyes adatokat a mindenkor hatályos adatvédelmi szabályok szerint kezeli. Az adatkezelés részleteit az Adatkezelési tájékoztató tartalmazza, amely a Honlapon érhető el.
+17.2. A Honlap cookie-kat és hasonló technológiákat alkalmazhat; erről a cookie tájékoztató rendelkezik.
+
+18. KOMMUNIKÁCIÓ, ÉRTESÍTÉSEK, HÍRLEVÉL
+18.1. A Szolgáltató a Szolgáltatással kapcsolatos értesítéseket elektronikus úton küldi (e-mail, felületi értesítés, zárt csatorna).
+18.2. Marketing célú üzenetek küldése (pl. hírlevél) csak a Megrendelő megfelelő hozzájárulása esetén történik; a leiratkozás lehetőségét a Szolgáltató biztosítja.
+
+19. AZ ÁSZF MÓDOSÍTÁSA
+19.1. A Szolgáltató jogosult az ÁSZF-et egyoldalúan módosítani, ha (i) jogszabályváltozás, (ii) szolgáltatásfejlesztés, (iii) üzletmenet-változás vagy (iv) fogyasztóvédelmi megfelelés ezt indokolja.
+19.2. A módosításokat a Szolgáltató a Honlapon közzéteszi, és – lényeges módosítás esetén – a Megrendelőt ésszerűen tájékoztatja.
+19.3. A módosítás a közzététellel lép hatályba, azzal, hogy a már megfizetett előfizetési időszakra a Megrendelő hátrányára irányuló változásokat a Szolgáltató lehetőség szerint nem alkalmazza visszamenőleg.
+
+20. ZÁRÓ RENDELKEZÉSEK
+20.1. A jelen ÁSZF-ben nem szabályozott kérdésekben a magyar jog irányadó.
+20.2. Ha bármely rendelkezés érvénytelennek vagy alkalmazhatatlannak minősül, az nem érinti a többi rendelkezés érvényességét; a felek az érintett részt a jogszabályokkal összhangban álló, céljának leginkább megfelelő rendelkezéssel pótolják.
+20.3. Mellékletek: Adatkezelési tájékoztató; Cookie tájékoztató; Díjszabás / Csomagok leírása.
+
+JOGSZABÁLYI HÁTTÉR (TÁJÉKOZTATÓ JELLEGŰ LISTA)
+- 2013. évi V. törvény a Polgári Törvénykönyvről (különösen: 6:78–6:83. §, 6:142. §, 6:152. §)
+- 45/2014. (II. 26.) Korm. rendelet (különösen: elállási jog, 29. § (1) m) pont)
+- 373/2021. (VI. 30.) Korm. rendelet (digitális tartalom és digitális szolgáltatás szerződésszerű teljesítése)
+- 2001. évi CVIII. törvény az elektronikus kereskedelmi szolgáltatásokról
+- 1997. évi CLV. törvény a fogyasztóvédelemről (békéltetés)
+- 1999. évi LXXVI. törvény a szerzői jogról
+- (EU) 524/2013 rendelet a fogyasztói jogviták online rendezéséről (ODR)
