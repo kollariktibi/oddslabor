@@ -1,10 +1,52 @@
+// Mobile Menu Functions
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const btn = document.querySelector('.mobile-menu-btn');
+
+    menu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    btn.classList.toggle('active');
+
+    // Prevent body scroll when menu is open
+    if (menu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+function closeMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const btn = document.querySelector('.mobile-menu-btn');
+
+    menu.classList.remove('active');
+    overlay.classList.remove('active');
+    btn.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close mobile menu on window resize (if screen becomes larger than tablet/iPad Pro)
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 1199) {
+        closeMobileMenu();
+    }
+});
+
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                // Close mobile menu if open
+                closeMobileMenu();
+                // Smooth scroll to target
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     });
 });

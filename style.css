@@ -4,11 +4,18 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: #0a0e1a;
     color: #fff;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* Animated Laboratory Background */
@@ -149,6 +156,7 @@ body {
     padding: 0 40px;
     position: relative;
     z-index: 1;
+    width: 100%;
 }
 
 /* Header */
@@ -158,7 +166,10 @@ header {
     backdrop-filter: blur(20px);
     position: fixed;
     width: 100%;
+    max-width: 100vw;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     border-bottom: 2px solid rgba(0, 255, 163, 0.1);
 }
@@ -314,6 +325,158 @@ header {
     stroke: #00ff9f;
 }
 
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 2px solid rgba(0, 255, 163, 0.3);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px;
+}
+
+.mobile-menu-btn:hover {
+    border-color: rgba(0, 255, 163, 0.6);
+    background: rgba(0, 255, 163, 0.1);
+}
+
+.hamburger-line {
+    width: 22px;
+    height: 2px;
+    background: #00ff9f;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.98) 0%, rgba(10, 14, 26, 0.98) 100%);
+    border-left: 2px solid rgba(0, 255, 163, 0.2);
+    z-index: 9999;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid rgba(0, 255, 163, 0.3);
+    border-radius: 50%;
+    color: #00ff9f;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.mobile-menu-close:hover {
+    background: rgba(0, 255, 163, 0.1);
+    border-color: #00ff9f;
+}
+
+.mobile-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 70px;
+}
+
+.mobile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 15px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(0, 255, 163, 0.1);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-item:hover,
+.mobile-menu-item:active {
+    background: rgba(0, 255, 163, 0.1);
+    border-color: rgba(0, 255, 163, 0.3);
+    transform: translateX(5px);
+}
+
+.mobile-menu-item svg {
+    color: #00ff9f;
+    flex-shrink: 0;
+}
+
+.mobile-menu-item.mobile-menu-cta {
+    margin-top: 15px;
+    background: linear-gradient(135deg, #00ff9f, #00e4ff);
+    color: #0a0e1a;
+    border: none;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.mobile-menu-item.mobile-menu-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 255, 163, 0.4);
+}
+
 .telegram-button {
     padding: 10px 20px;
     background: rgba(15, 23, 42, 0.8);
@@ -429,6 +592,7 @@ header {
     padding: 200px 0 120px;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 .hero-glow {
@@ -438,6 +602,7 @@ header {
     transform: translate(-50%, -50%);
     width: 800px;
     height: 800px;
+    max-width: 100vw;
     background: radial-gradient(circle, rgba(0, 255, 163, 0.15) 0%, transparent 70%);
     animation: pulse-glow 5s ease-in-out infinite;
     pointer-events: none;
@@ -572,6 +737,21 @@ header {
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-telegram {
+    padding: 18px 50px;
+    font-size: 18px;
 }
 
 /* Laboratory Stats with Test Tubes */
@@ -1548,6 +1728,7 @@ header {
     padding: 120px 0;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 .final-cta::before {
@@ -1558,6 +1739,7 @@ header {
     transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
+    max-width: 100vw;
     background: radial-gradient(circle, rgba(123, 47, 247, 0.2) 0%, transparent 70%);
     animation: pulse-glow 4s ease-in-out infinite;
 }
@@ -1618,13 +1800,32 @@ footer {
     .features-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* Desktop/Laptop (1024px - 1399px) - DEFAULT */
+/* Desktop/Laptop (1200px - 1399px) - DEFAULT */
 
-/* Tablet Landscape (768px - 1023px) */
-@media (max-width: 1023px) {
+/* Tablet Landscape & iPad Pro (up to 1199px) */
+@media (max-width: 1199px) {
     .container { padding: 0 30px; }
 
-    .hero { padding: 160px 0 100px; }
+    /* Header - hamburger menu for tablets too */
+    header { padding: 15px 0; }
+    .header-content {
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .header-left {
+        flex-direction: row;
+        gap: 15px;
+        width: auto;
+        align-items: center;
+    }
+    .header-buttons { display: none; }
+    .header-right { display: none; }
+    .mobile-menu-btn { display: flex; }
+    .logo-image { height: 60px; }
+
+    .hero { padding: 140px 0 100px; }
     .hero-logo-bg { max-width: 700px; }
     .hero h1 { font-size: 56px; }
     .hero .tagline { font-size: 24px; }
@@ -1656,15 +1857,28 @@ footer {
 @media (max-width: 767px) {
     .container { padding: 0 25px; }
 
-    header { padding: 20px 0; }
-    .header-content { flex-direction: column; gap: 20px; align-items: stretch; }
-    .header-left { flex-direction: column; gap: 20px; width: 100%; align-items: center; }
-    .header-buttons { width: 100%; justify-content: center; flex-wrap: wrap; }
-    .header-right { width: 100%; justify-content: center; flex-wrap: wrap; }
-    .contact-button { padding: 10px 20px; font-size: 13px; }
-    .contact-icon-button { width: 40px; height: 40px; }
-    .cta-button { padding: 12px 28px; font-size: 14px; }
-    .logo-image { height: 60px; }
+    header { padding: 15px 0; }
+    .header-content {
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .header-left {
+        flex-direction: row;
+        gap: 15px;
+        width: auto;
+        align-items: center;
+    }
+
+    /* Hide desktop menu items */
+    .header-buttons { display: none; }
+    .header-right { display: none; }
+
+    /* Show mobile menu button */
+    .mobile-menu-btn { display: flex; }
+
+    .logo-image { height: 55px; }
 
     .hero { padding: 140px 0 80px; }
     .hero-logo-bg { max-width: 600px; opacity: 0.06; }
@@ -1675,34 +1889,62 @@ footer {
     .liquid-drop { width: 30px; height: 60px; }
     .cta-button-large { padding: 18px 40px; font-size: 16px; }
 
-    .stats { padding: 80px 0; }
-    .stats-container { grid-template-columns: 1fr; gap: 25px; max-width: 400px; }
-    .stat-card { padding: 35px 25px; }
-    .stat-number { font-size: 52px; }
-    .stat-label { font-size: 16px; }
+    .hero-buttons {
+        gap: 15px;
+    }
 
-    .reviews { padding: 80px 0; }
-    .reviews h2 { font-size: 42px; }
-    .reviews-grid { grid-template-columns: 1fr; gap: 30px; }
-    .review-card { padding: 35px 25px; }
+    .hero-telegram {
+        padding: 16px 40px;
+        font-size: 16px;
+    }
 
-    .features { padding: 80px 0; }
-    .features h2 { font-size: 42px; margin-bottom: 60px; }
-    .features-grid { grid-template-columns: 1fr; gap: 30px; }
-    .feature-card { padding: 35px; }
-    .feature-card h3 { font-size: 24px; }
+    .stats { padding: 60px 0; }
+    .stats-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        max-width: 100%;
+    }
+    .stat-card {
+        padding: 20px 10px;
+        border-radius: 20px;
+    }
+    .stat-icon { font-size: 28px; margin-bottom: 10px; }
+    .stat-number { font-size: 28px; margin-bottom: 5px; }
+    .stat-label { font-size: 11px; }
 
-    .pricing { padding: 80px 0; }
-    .pricing h2 { font-size: 42px; }
-    .pricing-card { padding: 40px 30px; }
-    .pricing-card h3 { font-size: 36px; }
-    .price-amount { font-size: 52px; }
-    .payment-methods { grid-template-columns: 1fr; }
+    /* Reviews - tablet portrait */
+    .reviews { padding: 60px 0; }
+    .reviews h2 { font-size: 34px; }
+    .reviews-subtitle { font-size: 15px; }
+    .reviews-grid { grid-template-columns: 1fr; gap: 20px; }
+    .review-card { padding: 28px 22px; border-radius: 22px; }
+    .reviewer-avatar { width: 48px; height: 48px; font-size: 22px; }
+    .reviewer-info h4 { font-size: 17px; }
+    .review-text { font-size: 15px; }
 
-    .analysis { padding: 80px 0; }
-    .analysis h2 { font-size: 42px; }
-    .analysis-subtitle { font-size: 18px; }
-    .analysis-grid { gap: 30px; }
+    /* Features - 2 columns tablet */
+    .features { padding: 60px 0; }
+    .features h2 { font-size: 34px; margin-bottom: 40px; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .feature-card { padding: 28px 20px; border-radius: 22px; }
+    .feature-icon { font-size: 42px; }
+    .feature-card h3 { font-size: 18px; }
+    .feature-card p { font-size: 14px; }
+
+    /* Pricing - tablet */
+    .pricing { padding: 60px 0; }
+    .pricing h2 { font-size: 34px; }
+    .pricing-card { padding: 35px 28px; border-radius: 25px; }
+    .pricing-card h3 { font-size: 32px; }
+    .price-amount { font-size: 48px; }
+    .pricing-features li { font-size: 15px; }
+    .payment-methods { grid-template-columns: repeat(3, 1fr); }
+
+    /* Analysis - tablet */
+    .analysis { padding: 60px 0; }
+    .analysis h2 { font-size: 34px; }
+    .analysis-subtitle { font-size: 16px; }
+    .analysis-grid { gap: 25px; }
     .analysis-pair { flex-direction: column; gap: 0; }
     .analysis-pair .analysis-card:first-child {
         border-radius: 20px 20px 0 0;
@@ -1714,12 +1956,29 @@ footer {
         border-left: 2px solid rgba(0, 255, 163, 0.15);
         border-top: 1px solid rgba(0, 255, 163, 0.15);
     }
-    .analysis-card { max-width: 100%; }
+    .analysis-card {
+        max-width: 100%;
+        width: 100%;
+    }
+    .analysis-card img { min-height: 280px; }
 
-    .faq { padding: 80px 0; }
-    .faq h2 { font-size: 42px; }
-    .faq-subtitle { font-size: 18px; }
-    .faq-grid { grid-template-columns: 1fr; gap: 20px; }
+    /* FAQ - tablet */
+    .faq { padding: 60px 0; }
+    .faq h2 { font-size: 34px; }
+    .faq-subtitle { font-size: 16px; }
+    .faq-grid { grid-template-columns: 1fr; gap: 15px; }
+    .faq-item { padding: 22px; border-radius: 18px; }
+    .faq-question h3 { font-size: 16px; }
+
+    /* Bookmakers - tablet */
+    .bookmakers { padding: 60px 0; }
+    .bookmakers h2 { font-size: 34px; }
+    .bookmaker-card { padding: 25px 20px; }
+
+    /* Final CTA - tablet */
+    .final-cta { padding: 80px 0; }
+    .final-cta h2 { font-size: 34px; }
+    .final-cta p { font-size: 18px; }
     .faq-item { padding: 25px; }
     .faq-question h3 { font-size: 18px; }
 
@@ -1730,105 +1989,268 @@ footer {
 
 /* Mobile (up to 599px) */
 @media (max-width: 599px) {
-    .container { padding: 0 20px; }
+    .container { padding: 0 15px; }
 
-    header { padding: 15px 0; }
-    .header-content { gap: 15px; }
-    .header-left { gap: 15px; }
-    .logo-image { height: 55px; }
-    .cta-button { padding: 12px 28px; font-size: 14px; }
-    .telegram-button, .stats-button, .reviews-button-header { font-size: 12px; padding: 8px 16px; }
+    header { padding: 10px 0; }
+    .header-content { gap: 10px; }
+    .header-left { gap: 10px; }
+    .logo-image { height: 45px; padding: 3px; }
+    .social-icons { gap: 6px; }
+    .social-icon { width: 30px; height: 30px; }
+    .social-icon svg { width: 14px; height: 14px; }
 
-    .hero { padding: 120px 0 60px; }
-    .hero-logo-bg { max-width: 450px; opacity: 0.05; }
-    .hero h1 { font-size: 36px; letter-spacing: -1px; }
-    .hero .tagline { font-size: 18px; }
-    .hero p { font-size: 16px; line-height: 1.5; }
-    .lab-icon-main { font-size: 80px; margin-bottom: 20px; }
-    .liquid-drop { width: 25px; height: 50px; bottom: -15px; }
+    .mobile-menu-btn {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+    }
+    .hamburger-line { width: 20px; }
+
+    .hero { padding: 140px 0 50px; }
+    .hero-logo-bg { max-width: 350px; opacity: 0.05; }
+    .hero h1 { font-size: 32px; letter-spacing: -1px; }
+    .hero .tagline { font-size: 16px; }
+    .hero p { font-size: 15px; line-height: 1.5; padding: 0 5px; }
+    .lab-icon-main { font-size: 70px; margin-bottom: 15px; }
+    .liquid-drop { width: 20px; height: 40px; bottom: -10px; }
+
     .cta-button-large {
-        padding: 16px 35px;
-        font-size: 15px;
+        padding: 14px 30px;
+        font-size: 14px;
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
     }
 
-    .stats { padding: 60px 0; }
-    .stats-container { gap: 20px; }
-    .stat-card { padding: 30px 20px; }
-    .stat-icon { font-size: 40px; }
-    .stat-number { font-size: 44px; }
-    .stat-label { font-size: 15px; }
+    .stats { padding: 50px 0; }
+    .stats-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        max-width: 100%;
+    }
+    .stat-card {
+        padding: 15px 8px;
+        border-radius: 16px;
+    }
+    .stat-icon { font-size: 24px; margin-bottom: 8px; }
+    .stat-number { font-size: 24px; margin-bottom: 4px; letter-spacing: -1px; }
+    .stat-label { font-size: 10px; line-height: 1.3; }
 
-    .reviews { padding: 60px 0; }
-    .reviews h2 { font-size: 32px; }
-    .reviews-subtitle { font-size: 16px; margin-bottom: 40px; }
-    .reviews-grid { gap: 25px; grid-template-columns: 1fr; }
-    .review-card { padding: 30px 20px; }
-    .reviewer-avatar { width: 50px; height: 50px; font-size: 24px; }
-    .reviewer-info h4 { font-size: 18px; }
-    .review-text { font-size: 15px; }
-    .reviews-button { padding: 16px 35px; font-size: 15px; }
+    /* Reviews section - mobile optimized */
+    .reviews { padding: 50px 0; }
+    .reviews h2 { font-size: 26px; letter-spacing: -1px; margin-bottom: 10px; }
+    .reviews-subtitle { font-size: 14px; margin-bottom: 30px; }
+    .reviews-grid { gap: 15px; grid-template-columns: 1fr; }
+    .review-card {
+        padding: 20px 16px;
+        border-radius: 20px;
+    }
+    .review-header { margin-bottom: 12px; }
+    .reviewer-avatar { width: 42px; height: 42px; font-size: 20px; }
+    .reviewer-info { gap: 10px; }
+    .reviewer-info h4 { font-size: 15px; margin-bottom: 2px; }
+    .reviewer-title { font-size: 12px; }
+    .review-rating { font-size: 14px; }
+    .review-text { font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
+    .reviews-button { padding: 14px 30px; font-size: 14px; }
 
-    .features { padding: 60px 0; }
-    .features h2 { font-size: 32px; margin-bottom: 40px; }
-    .features-grid { gap: 25px; }
-    .feature-card { padding: 30px 25px; }
-    .feature-icon { font-size: 50px; }
-    .feature-card h3 { font-size: 22px; margin-bottom: 15px; }
-    .feature-card p { font-size: 16px; line-height: 1.6; }
+    /* Features section - 2 columns on mobile */
+    .features { padding: 50px 0; }
+    .features h2 { font-size: 26px; margin-bottom: 30px; letter-spacing: -1px; }
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .feature-card {
+        padding: 20px 14px;
+        border-radius: 18px;
+        text-align: center;
+    }
+    .feature-icon { font-size: 36px; margin-bottom: 12px; }
+    .feature-card h3 { font-size: 14px; margin-bottom: 8px; }
+    .feature-card p { font-size: 12px; line-height: 1.5; }
 
-    .pricing { padding: 60px 0; }
-    .pricing h2 { font-size: 32px; }
-    .pricing-subtitle { font-size: 16px; margin-bottom: 40px; }
-    .pricing-card { padding: 30px 20px; }
-    .pricing-badge { font-size: 12px; padding: 6px 16px; }
-    .pricing-card h3 { font-size: 30px; }
-    .pricing-description { font-size: 16px; }
-    .price-amount { font-size: 48px; }
-    .price-period { font-size: 20px; }
-    .pricing-features li { font-size: 15px; padding: 12px 0; }
-    .feature-check { font-size: 20px; }
-    .payment-section { padding: 25px 20px; }
-    .payment-section h4 { font-size: 18px; }
-    .payment-input { padding: 14px 18px; font-size: 15px; }
-    .subscribe-button { padding: 18px; font-size: 16px; }
+    /* Pricing section - compact mobile */
+    .pricing { padding: 50px 0; }
+    .pricing h2 { font-size: 26px; letter-spacing: -1px; }
+    .pricing-subtitle { font-size: 14px; margin-bottom: 30px; }
+    .pricing-card {
+        padding: 25px 16px;
+        border-radius: 22px;
+        margin: 0 5px;
+    }
+    .pricing-badge { font-size: 11px; padding: 5px 14px; margin-bottom: 15px; }
+    .pricing-card h3 { font-size: 24px; margin-bottom: 10px; }
+    .pricing-description { font-size: 14px; margin-bottom: 25px; }
+    .pricing-price { margin-bottom: 25px; gap: 6px; }
+    .price-amount { font-size: 42px; }
+    .price-period { font-size: 16px; }
+    .pricing-features { margin-bottom: 25px; }
+    .pricing-features li { font-size: 13px; padding: 10px 0; gap: 10px; }
+    .feature-check { font-size: 18px; }
+    .payment-section {
+        padding: 20px 14px;
+        border-radius: 16px;
+        margin-bottom: 20px;
+    }
+    .payment-section h4 { font-size: 16px; margin-bottom: 15px; }
+    .payment-input {
+        padding: 12px 14px;
+        font-size: 14px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+    }
+    .payment-methods { gap: 8px; margin-bottom: 15px; }
+    .payment-method {
+        padding: 10px 8px;
+        font-size: 11px;
+        border-radius: 10px;
+    }
+    .subscribe-button {
+        padding: 16px;
+        font-size: 15px;
+        border-radius: 12px;
+    }
+    .trust-badges { gap: 10px; margin-top: 20px; }
+    .trust-badge { padding: 8px 14px; font-size: 12px; }
 
-    .analysis { padding: 70px 0; }
-    .analysis h2 { font-size: 36px; }
-    .analysis-subtitle { font-size: 16px; margin-bottom: 40px; }
-    .analysis-grid { gap: 25px; }
+    /* Analysis section */
+    .analysis { padding: 50px 0; }
+    .analysis h2 { font-size: 26px; letter-spacing: -1px; }
+    .analysis-subtitle { font-size: 14px; margin-bottom: 30px; }
+    .analysis-grid { gap: 20px; }
     .analysis-pair { flex-direction: column; }
+    .analysis-card img { min-height: 200px; }
     .modal-content { max-width: 95%; }
-    .modal-close { right: 20px; font-size: 40px; }
+    .modal-close { right: 15px; top: 15px; font-size: 36px; }
 
-    .faq { padding: 70px 0; }
-    .faq h2 { font-size: 36px; }
-    .faq-subtitle { font-size: 16px; margin-bottom: 40px; }
-    .faq-grid { grid-template-columns: 1fr; gap: 15px; }
-    .faq-item { padding: 20px; }
-    .faq-question h3 { font-size: 17px; }
-    .faq-icon { font-size: 24px; }
-    .faq-toggle { font-size: 28px; }
-    .faq-answer p { font-size: 15px; }
+    /* FAQ section - compact */
+    .faq { padding: 50px 0; }
+    .faq h2 { font-size: 26px; letter-spacing: -1px; }
+    .faq-subtitle { font-size: 14px; margin-bottom: 30px; }
+    .faq-grid { grid-template-columns: 1fr; gap: 10px; }
+    .faq-item {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .faq-question { gap: 10px; }
+    .faq-question h3 { font-size: 14px; }
+    .faq-icon { font-size: 20px; }
+    .faq-toggle { font-size: 24px; }
+    .faq-answer p { font-size: 13px; line-height: 1.6; }
 
-    .final-cta { padding: 80px 0; }
-    .final-cta h2 { font-size: 32px; }
-    .final-cta p { font-size: 18px; }
+    /* Bookmakers section */
+    .bookmakers { padding: 50px 0; }
+    .bookmakers h2 { font-size: 26px; }
+    .bookmakers-subtitle { font-size: 14px; margin-bottom: 30px; }
+    .bookmakers-grid { gap: 15px; }
+    .bookmaker-card {
+        padding: 20px 16px;
+        border-radius: 20px;
+    }
+    .bookmaker-logo { height: 80px; margin-bottom: 15px; }
+    .bookmaker-info h3 { font-size: 20px; margin-bottom: 12px; }
+    .bookmaker-features li { font-size: 13px; padding: 6px 0; }
+    .bookmaker-cta {
+        padding: 12px 28px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
 
-    footer { padding: 40px 0; font-size: 13px; }
+    /* Final CTA */
+    .final-cta { padding: 60px 0; }
+    .final-cta h2 { font-size: 26px; letter-spacing: -1px; margin-bottom: 15px; }
+    .final-cta p { font-size: 16px; margin-bottom: 30px; }
+
+    footer { padding: 30px 0; font-size: 12px; }
+    footer .footer-link { font-size: 12px; }
 
     /* Hero section button layout for mobile */
-    .hero > .container > div[style*="display: flex"] {
-        flex-direction: column !important;
-        gap: 15px !important;
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        padding: 0 10px;
     }
 
-    .hero .telegram-button,
-    .hero .reviews-button {
+    .hero-buttons .cta-button-large,
+    .hero-buttons .reviews-button,
+    .hero-buttons .hero-telegram {
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
         justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .hero-telegram {
+        padding: 14px 25px;
+        font-size: 14px;
+    }
+
+    .hero-buttons .reviews-button {
+        padding: 14px 30px;
+        font-size: 14px;
+    }
+
+    /* Fix for stat cards */
+    .stats-container {
+        padding: 0 10px;
+    }
+
+    .stat-card {
+        padding: 25px 15px;
+        border-radius: 20px;
+    }
+
+    .stat-number {
+        font-size: 38px;
+    }
+
+    .stat-icon {
+        font-size: 35px;
+    }
+
+    /* Reviews section mobile fix */
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card {
+        padding: 25px 18px;
+    }
+
+    /* Pricing section mobile fix */
+    .pricing-card {
+        margin: 0 5px;
+    }
+
+    .payment-section {
+        padding: 20px 15px;
+    }
+
+    .payment-methods {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .payment-method {
+        padding: 10px 5px;
+        font-size: 11px;
+    }
+
+    /* Fix overflow issues */
+    body {
+        overflow-x: hidden;
+    }
+
+    .hero-glow {
+        width: 400px;
+        height: 400px;
+    }
+
+    .final-cta::before {
+        width: 300px;
+        height: 300px;
     }
 }
 
@@ -2300,10 +2722,23 @@ footer .footer-link:hover {
 
 @media (max-width: 480px) {
     .social-proof-bubble {
-        left: 15px;
-        right: 15px;
-        bottom: 20px;
+        left: 10px;
+        right: 10px;
+        bottom: 15px;
         max-width: none;
+        padding: 12px 15px;
+    }
+
+    .bubble-icon {
+        font-size: 26px;
+    }
+
+    .bubble-name {
+        font-size: 13px;
+    }
+
+    .bubble-text {
+        font-size: 12px;
     }
 }
 
@@ -2435,10 +2870,28 @@ footer .footer-link:hover {
 
 @media (max-width: 480px) {
     .bookmaker-popup {
-        right: 15px;
-        left: 15px;
-        bottom: 20px;
+        right: 10px;
+        left: 10px;
+        bottom: 80px;
         max-width: none;
+    }
+
+    .bookmaker-popup-image {
+        height: 60px;
+    }
+
+    .bookmaker-popup-info {
+        padding: 10px 15px 5px;
+    }
+
+    .bookmaker-popup-info h4 {
+        font-size: 16px;
+    }
+
+    .bookmaker-popup-cta {
+        margin: 8px 15px 15px;
+        padding: 12px 15px;
+        font-size: 13px;
     }
 }
 
@@ -2641,36 +3094,291 @@ footer .footer-link:hover {
 }
 
 @media (max-width: 480px) {
+    .about {
+        padding: 50px 0;
+    }
+
     .about h2 {
-        font-size: 28px;
+        font-size: 24px;
+        margin-bottom: 25px;
     }
 
     .about-text {
-        padding: 25px 20px;
+        padding: 20px 16px;
+        border-radius: 18px;
     }
 
     .about-text p {
-        font-size: 14px;
+        font-size: 13px;
+        line-height: 1.7;
+        margin-bottom: 15px;
     }
 
     .about-intro {
-        font-size: 16px !important;
+        font-size: 15px !important;
+        margin-bottom: 20px !important;
+        padding-bottom: 15px;
     }
 
     .about-highlight {
-        font-size: 15px !important;
+        font-size: 14px !important;
+        padding: 12px;
+        margin-top: 25px !important;
+        margin-bottom: 20px !important;
     }
 
     .about-tagline {
-        font-size: 20px !important;
+        font-size: 18px !important;
     }
 
     .about-final {
-        font-size: 15px !important;
+        font-size: 14px !important;
+    }
+
+    .about-closing {
+        margin-top: 25px;
+        padding-top: 20px;
     }
 
     .about-button {
         font-size: 12px;
         padding: 8px 14px;
     }
+}
+
+/* ============================================
+   DEVICE-SPECIFIC FIXES FOR OVERFLOW ISSUES
+   ============================================ */
+
+/* All mobile/tablet devices - Global overflow fix */
+@media (max-width: 1199px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    section {
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* Small phones (iPhone SE, Galaxy S8, etc.) - 320px to 375px */
+@media (max-width: 375px) {
+    .container { padding: 0 12px; }
+
+    header { padding: 8px 0; }
+    .logo-image { height: 40px; }
+    .social-icon { width: 28px; height: 28px; }
+    .social-icon svg { width: 12px; height: 12px; }
+    .mobile-menu-btn { width: 36px; height: 36px; }
+    .hamburger-line { width: 18px; }
+
+    .hero { padding: 120px 0 40px; }
+    .hero h1 { font-size: 26px; }
+    .hero .tagline { font-size: 14px; }
+    .hero p { font-size: 13px; }
+    .lab-icon-main { font-size: 60px; }
+
+    .hero-buttons { gap: 10px; }
+    .cta-button-large {
+        padding: 12px 24px;
+        font-size: 13px;
+        max-width: 260px;
+    }
+    .hero-telegram {
+        padding: 12px 20px;
+        font-size: 12px;
+    }
+    .hero .reviews-button {
+        padding: 12px 24px;
+        font-size: 13px;
+    }
+
+    /* Stats for small phones */
+    .stat-card { padding: 12px 6px; }
+    .stat-icon { font-size: 20px; margin-bottom: 6px; }
+    .stat-number { font-size: 20px; margin-bottom: 3px; }
+    .stat-label { font-size: 9px; }
+
+    /* Section titles for small phones */
+    .reviews h2, .features h2, .pricing h2, .faq h2, .analysis h2, .bookmakers h2 {
+        font-size: 22px;
+        letter-spacing: -1px;
+    }
+
+    /* Reviews for small phones */
+    .review-card { padding: 16px 14px; }
+    .reviewer-avatar { width: 38px; height: 38px; font-size: 18px; }
+    .reviewer-info h4 { font-size: 14px; }
+    .reviewer-title { font-size: 11px; }
+    .review-text { font-size: 13px; }
+
+    /* Features for small phones */
+    .feature-card { padding: 16px 12px; }
+    .feature-icon { font-size: 32px; margin-bottom: 10px; }
+    .feature-card h3 { font-size: 13px; }
+    .feature-card p { font-size: 11px; }
+
+    /* Pricing for small phones */
+    .pricing-card { padding: 20px 14px; }
+    .pricing-badge { font-size: 10px; padding: 4px 12px; }
+    .pricing-card h3 { font-size: 22px; }
+    .price-amount { font-size: 36px; }
+    .price-period { font-size: 14px; }
+    .pricing-features li { font-size: 12px; padding: 8px 0; }
+    .payment-section { padding: 16px 12px; }
+    .payment-section h4 { font-size: 14px; }
+    .payment-input { padding: 10px 12px; font-size: 13px; }
+    .payment-method { font-size: 10px; padding: 8px 4px; }
+    .subscribe-button { padding: 14px; font-size: 14px; }
+
+    /* FAQ for small phones */
+    .faq-item { padding: 14px; }
+    .faq-question h3 { font-size: 13px; }
+    .faq-icon { font-size: 18px; }
+    .faq-toggle { font-size: 22px; }
+    .faq-answer p { font-size: 12px; }
+
+    /* Bookmakers for small phones */
+    .bookmaker-card { padding: 16px 14px; }
+    .bookmaker-logo { height: 70px; }
+    .bookmaker-info h3 { font-size: 18px; }
+    .bookmaker-features li { font-size: 12px; }
+    .bookmaker-cta { padding: 10px 24px; font-size: 13px; }
+
+    .mobile-menu { width: 260px; }
+    .mobile-menu-item { padding: 14px 16px; font-size: 14px; }
+}
+
+/* Medium phones (iPhone 6/7/8/X, Galaxy S9, etc.) - 376px to 414px */
+@media (min-width: 376px) and (max-width: 414px) {
+    .container { padding: 0 15px; }
+
+    .hero h1 { font-size: 30px; }
+    .hero .tagline { font-size: 15px; }
+    .hero p { font-size: 14px; }
+
+    .cta-button-large { max-width: 280px; padding: 14px 28px; font-size: 14px; }
+    .hero-telegram { padding: 14px 24px; font-size: 13px; }
+    .hero .reviews-button { padding: 14px 28px; font-size: 14px; }
+
+    /* Stats for medium phones */
+    .stat-card { padding: 14px 8px; }
+    .stat-icon { font-size: 22px; }
+    .stat-number { font-size: 22px; }
+    .stat-label { font-size: 10px; }
+
+    /* Reviews for medium phones */
+    .review-card { padding: 18px 16px; }
+    .reviewer-avatar { width: 44px; height: 44px; }
+    .review-text { font-size: 14px; }
+
+    /* Features for medium phones */
+    .feature-card { padding: 18px 14px; }
+    .feature-icon { font-size: 38px; }
+    .feature-card h3 { font-size: 15px; }
+    .feature-card p { font-size: 12px; }
+
+    /* Pricing for medium phones */
+    .pricing-card { padding: 24px 18px; }
+    .price-amount { font-size: 40px; }
+    .pricing-features li { font-size: 14px; }
+}
+
+/* Large phones (iPhone Plus/Max, Galaxy Note, etc.) - 415px to 480px */
+@media (min-width: 415px) and (max-width: 480px) {
+    .hero h1 { font-size: 34px; }
+    .hero .tagline { font-size: 17px; }
+    .hero p { font-size: 15px; }
+
+    .cta-button-large { padding: 15px 32px; font-size: 15px; }
+    .hero-telegram { padding: 15px 28px; font-size: 14px; }
+
+    /* Stats for large phones */
+    .stat-card { padding: 18px 10px; }
+    .stat-icon { font-size: 26px; }
+    .stat-number { font-size: 26px; }
+    .stat-label { font-size: 11px; }
+
+    /* Reviews for large phones */
+    .review-card { padding: 22px 18px; }
+    .reviewer-avatar { width: 46px; height: 46px; }
+    .review-text { font-size: 14px; }
+
+    /* Features for large phones */
+    .feature-card { padding: 22px 16px; }
+    .feature-icon { font-size: 40px; }
+    .feature-card h3 { font-size: 16px; }
+    .feature-card p { font-size: 13px; }
+
+    /* Pricing for large phones */
+    .pricing-card { padding: 28px 20px; }
+    .price-amount { font-size: 44px; }
+}
+
+/* Tablet Portrait (iPad mini, etc.) - 768px */
+@media (min-width: 768px) and (max-width: 834px) {
+    .hero { padding: 140px 0 80px; }
+    .hero h1 { font-size: 48px; }
+
+    /* Stats for tablets */
+    .stats-container { gap: 20px; }
+    .stat-card { padding: 30px 20px; border-radius: 25px; }
+    .stat-icon { font-size: 36px; margin-bottom: 15px; }
+    .stat-number { font-size: 38px; margin-bottom: 8px; }
+    .stat-label { font-size: 14px; }
+
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* iPad (834px - 1024px) */
+@media (min-width: 835px) and (max-width: 1024px) {
+    .hero { padding: 140px 0 90px; }
+    .hero h1 { font-size: 52px; }
+
+    /* Stats for iPad */
+    .stats-container { gap: 25px; }
+    .stat-card { padding: 35px 25px; border-radius: 28px; }
+    .stat-icon { font-size: 40px; margin-bottom: 18px; }
+    .stat-number { font-size: 44px; margin-bottom: 10px; }
+    .stat-label { font-size: 15px; }
+
+    .mobile-menu { width: 320px; }
+    .mobile-menu-item { padding: 18px 24px; font-size: 17px; }
+}
+
+/* iPad Pro (1025px - 1199px) */
+@media (min-width: 1025px) and (max-width: 1199px) {
+    .hero { padding: 150px 0 100px; }
+    .hero h1 { font-size: 58px; }
+    .hero .tagline { font-size: 26px; }
+    .hero p { font-size: 20px; }
+
+    /* Stats for iPad Pro */
+    .stats-container { gap: 30px; }
+    .stat-card { padding: 40px 30px; border-radius: 28px; }
+    .stat-icon { font-size: 44px; margin-bottom: 18px; }
+    .stat-number { font-size: 48px; margin-bottom: 10px; }
+    .stat-label { font-size: 16px; }
+
+    /* Reviews for iPad Pro */
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .review-card { padding: 35px 28px; }
+
+    /* Features for iPad Pro */
+    .features-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .feature-card { padding: 35px 25px; }
+    .feature-icon { font-size: 50px; }
+    .feature-card h3 { font-size: 22px; }
+    .feature-card p { font-size: 15px; }
+
+    .mobile-menu { width: 350px; }
+    .mobile-menu-item { padding: 18px 24px; font-size: 17px; }
 }
