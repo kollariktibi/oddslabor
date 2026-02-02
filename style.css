@@ -1137,6 +1137,13 @@ header {
     -webkit-text-fill-color: transparent;
 }
 
+.price-original {
+    font-size: 24px;
+    color: #7a8ea6;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
 .price-period {
     font-size: 24px;
     color: #7a8ea6;
@@ -2083,6 +2090,7 @@ footer {
     .pricing-description { font-size: 14px; margin-bottom: 25px; }
     .pricing-price { margin-bottom: 25px; gap: 6px; }
     .price-amount { font-size: 42px; }
+    .price-original { font-size: 16px; }
     .price-period { font-size: 16px; }
     .pricing-features { margin-bottom: 25px; }
     .pricing-features li { font-size: 13px; padding: 10px 0; gap: 10px; }
@@ -3231,6 +3239,7 @@ footer .footer-link:hover {
     .pricing-badge { font-size: 10px; padding: 4px 12px; }
     .pricing-card h3 { font-size: 22px; }
     .price-amount { font-size: 36px; }
+    .price-original { font-size: 14px; }
     .price-period { font-size: 14px; }
     .pricing-features li { font-size: 12px; padding: 8px 0; }
     .payment-section { padding: 16px 12px; }
