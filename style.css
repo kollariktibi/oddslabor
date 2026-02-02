@@ -1281,6 +1281,7 @@ header {
 }
 
 .subscribe-button {
+    display: block;
     width: 100%;
     padding: 20px;
     background: linear-gradient(135deg, #00ff9f, #00e4ff);
@@ -1292,6 +1293,9 @@ header {
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 10px 40px rgba(0, 255, 163, 0.4);
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .subscribe-button:hover {
