@@ -304,8 +304,19 @@ const bookmakers = [
         image: '22bet.jpg',
         link: 'https://moy.auraodin.com/redirect.aspx?pid=163057&bid=1495&lpid=115',
         bonus: '100% sportfogadás bónusz 48500 Ft-ig'
+    },
+    {
+        name: 'Bet105',
+        image: 'bet105.png',
+        link: 'https://bet105.ag/',
+        bonus: 'Gyors kifizetések & magas szorzók'
+    },
+    {
+        name: 'Shuffle',
+        image: 'shuffle.png',
+        link: 'https://shuffle.com?r=oddslabor',
+        bonus: 'Modern felület & nagylelkű promóciók'
     }
-    // További fogadóirodák később hozzáadhatók
 ];
 
 let currentBookmakerLink = '';
