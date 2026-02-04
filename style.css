@@ -2892,10 +2892,8 @@ footer .footer-link:hover {
 
 .bookmaker-popup-image {
     width: 100%;
-    height: 80px;
-    object-fit: contain;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px;
+    height: 100px;
+    object-fit: cover;
 }
 
 .bookmaker-popup-info {
@@ -2943,7 +2941,7 @@ footer .footer-link:hover {
     }
 
     .bookmaker-popup-image {
-        height: 60px;
+        height: 80px;
     }
 
     .bookmaker-popup-info {

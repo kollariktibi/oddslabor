@@ -309,13 +309,13 @@ const bookmakers = [
         name: 'Bet105',
         image: 'bet105.png',
         link: 'https://bet105.ag/',
-        bonus: 'Gyors kifizetések & magas szorzók'
+        bonus: 'Legmagasabb szorzók, gyors kifizetés'
     },
     {
         name: 'Shuffle',
         image: 'shuffle.png',
         link: 'https://shuffle.com?r=oddslabor',
-        bonus: 'Modern felület & nagylelkű promóciók'
+        bonus: 'Magas szorzók, VIP bónusz rendszer'
     }
 ];
 
