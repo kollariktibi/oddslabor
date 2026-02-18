@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Sikeres Fizetés - Odds Labor</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .success-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .success-card {
+            max-width: 600px;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(10, 14, 26, 0.95) 100%);
+            padding: 60px 40px;
+            border-radius: 30px;
+            border: 2px solid rgba(0, 255, 163, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 255, 163, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 163, 0.1) 0%, transparent 50%);
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        .success-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .success-title {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #00ff9f, #00e4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .success-message {
+            color: #7a8ea6;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .telegram-join-btn {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, #00ff9f, #00e4ff);
+            color: #0a0e1a;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(0, 255, 163, 0.4);
+        }
+
+        .telegram-join-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0, 255, 163, 0.6);
+        }
+
+        .success-steps {
+            margin-top: 40px;
+            text-align: left;
+            background: rgba(0, 255, 163, 0.05);
+            border: 1px solid rgba(0, 255, 163, 0.15);
+            border-radius: 15px;
+            padding: 25px 30px;
+        }
+
+        .success-steps h4 {
+            color: #00ff9f;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .success-steps ol {
+            color: #7a8ea6;
+            font-size: 15px;
+            line-height: 2;
+            padding-left: 20px;
+        }
+
+        .success-steps li {
+            color: #c0c8d4;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #7a8ea6;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #00ff9f;
+        }
+
+        @media (max-width: 599px) {
+            .success-card {
+                padding: 40px 20px;
+                border-radius: 20px;
+            }
+            .success-icon { font-size: 60px; }
+            .success-title { font-size: 26px; }
+            .success-message { font-size: 15px; margin-bottom: 30px; }
+            .telegram-join-btn { padding: 16px 35px; font-size: 17px; }
+            .success-steps { padding: 20px; }
+            .success-steps ol { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lab-background">
+        <div class="grid-overlay"></div>
+        <div class="beaker">🧪</div>
+        <div class="beaker">⚗️</div>
+        <div class="beaker">🧫</div>
+        <div class="beaker">🔬</div>
+    </div>
+
+    <div class="success-page">
+        <div class="success-card">
+            <div class="success-content">
+                <div class="success-icon">🎉</div>
+                <h1 class="success-title">Sikeres Fizetés!</h1>
+                <p class="success-message">
+                    Köszönjük, hogy csatlakoztál A Laboratóriumhoz!<br>
+                    Az alábbi gombra kattintva tudsz csatlakozni a VIP Telegram csoportunkhoz.
+                </p>
+
+                <a href="https://t.me/+s56wGXgfQHs0ZDM0" target="_blank" class="telegram-join-btn">
+                    📱 Csatlakozás a VIP Csoporthoz
+                </a>
+
+                <div class="success-steps">
+                    <h4>📋 Következő lépések:</h4>
+                    <ol>
+                        <li>Kattints a fenti gombra a Telegram megnyitásához</li>
+                        <li>Csatlakozz a VIP csoporthoz</li>
+                        <li>Mutatkozz be és kezdj el profitálni!</li>
+                    </ol>
+                </div>
+
+                <a href="index.html" class="back-link">← Vissza a főoldalra</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
