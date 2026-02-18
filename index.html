@@ -1137,17 +1137,32 @@ Adatok, ritmus, matchupok – minden szinten.</p>
         </div>
     </div>
 
+    <!-- Impresszum Modal -->
+    <div id="impresszumModal" class="legal-modal">
+        <div class="legal-modal-content">
+            <span class="legal-modal-close" onclick="closeImpresszumModal()">&times;</span>
+            <h2>Impresszum</h2>
+            <div class="legal-modal-body">
+                <p><strong>Szolgáltató neve:</strong> Újvári Roland EV.</p>
+                <p><strong>Székhely:</strong> 2371 Dabas, Dobó Katica utca 41</p>
+                <p><strong>Nyilvántartási szám:</strong> A164718225</p>
+                <p><strong>Adószám:</strong> 91793775-1-33</p>
+                <p><strong>Képviselő:</strong> Újvári Roland</p>
+                <p><strong>E-mail:</strong> info@oddslabor.hu</p>
+                <p><strong>Telefonszám:</strong> +36 20 367 7189</p>
+                <p><strong>Tárhelyszolgáltató:</strong> Netlify, Inc. (512 2nd Street, Suite 200, San Francisco, CA 94107, USA)</p>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
-            <div class="footer-impresszum">
-                <p><strong>Újvári Roland EV.</strong> | Székhely: 2371 Dabas, Dobó Katica utca 41 | Adószám: 91793775-1-33 | Nyilvántartási szám: A164718225</p>
-                <p>E-mail: info@oddslabor.hu | Telefon: +36 20 367 7189</p>
-            </div>
             <p>
                 &copy; 2026 Odds Labor. Minden jog fenntartva. | Felelős játék | Csak 18+ részére
                 <br>
                 <a href="#" onclick="openAszfModal(); return false;" class="footer-link">ÁSZF</a> |
-                <a href="#" onclick="openAdatvedelemModal(); return false;" class="footer-link">Adatvédelmi nyilatkozat</a>
+                <a href="#" onclick="openAdatvedelemModal(); return false;" class="footer-link">Adatvédelmi nyilatkozat</a> |
+                <a href="#" onclick="openImpresszumModal(); return false;" class="footer-link">Impresszum</a>
             </p>
         </div>
     </footer>

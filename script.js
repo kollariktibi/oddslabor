@@ -206,6 +206,25 @@ document.getElementById('adatvedelemModal')?.addEventListener('click', function(
     }
 });
 
+// Impresszum Modal Functions
+function openImpresszumModal() {
+    const modal = document.getElementById('impresszumModal');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImpresszumModal() {
+    const modal = document.getElementById('impresszumModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+document.getElementById('impresszumModal')?.addEventListener('click', function(event) {
+    if (event.target === this) {
+        closeImpresszumModal();
+    }
+});
+
 // Update ESC key handler to close all modals
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
@@ -213,6 +232,7 @@ document.addEventListener('keydown', function(event) {
         closeContactModal();
         closeAszfModal();
         closeAdatvedelemModal();
+        closeImpresszumModal();
     }
 });
 
