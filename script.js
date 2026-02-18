@@ -338,3 +338,25 @@ function closeBookmakerPopup() {
 setTimeout(() => {
     showBookmakerPopup();
 }, 10000);
+
+// Cookie Consent Banner
+function showCookieBanner() {
+    if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookieBanner').classList.add('show');
+    }
+}
+
+function acceptCookies() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    document.getElementById('cookieBanner').classList.remove('show');
+}
+
+function declineCookies() {
+    localStorage.setItem('cookieConsent', 'declined');
+    document.getElementById('cookieBanner').classList.remove('show');
+}
+
+// Show cookie banner on page load
+setTimeout(() => {
+    showCookieBanner();
+}, 1000);
