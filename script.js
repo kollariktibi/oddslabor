@@ -51,28 +51,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Payment method selection
-document.querySelectorAll('.payment-method').forEach(method => {
-    method.addEventListener('click', function() {
-        document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
-        this.classList.add('active');
-    });
-});
-
-// Subscribe button handler
-function handleSubscribe() {
-    const email = document.querySelector('input[type="email"]').value;
-    const name = document.querySelector('input[placeholder="Teljes név"]').value;
-
-    if (!email || !name) {
-        alert('Kérlek töltsd ki az összes mezőt!');
-        return;
-    }
-
-    // Itt integrálhatod a tényleges fizetési szolgáltatót (Stripe, PayPal, stb.)
-    alert('Köszönjük az érdeklődést! Hamarosan felvesszük veled a kapcsolatot az előfizetés véglegesítéséhez.');
-}
-
 // FAQ toggle functionality
 document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', function() {
@@ -172,7 +150,7 @@ document.getElementById('contactForm')?.addEventListener('submit', function(even
                 closeContactModal();
             }, 3000);
         }, function() {
-            showFormStatus('❌ Hiba történt az üzenet küldése során. Próbáld újra később vagy írj nekünk közvetlenül: info@oddslabor.com', 'error');
+            showFormStatus('❌ Hiba történt az üzenet küldése során. Próbáld újra később vagy írj nekünk közvetlenül: info@oddslabor.hu', 'error');
         })
         .finally(function() {
             // Reset button state
