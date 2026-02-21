@@ -2099,7 +2099,7 @@ footer {
     .pricing { padding: 60px 0; }
     .pricing h2 { font-size: 34px; }
     .pricing-cards-container { grid-template-columns: 1fr; gap: 25px; max-width: 550px; }
-    .pricing-card-featured { transform: scale(1); order: -1; }
+    .pricing-card-featured { transform: scale(1); order: 1; }
     .pricing-card { padding: 35px 28px; border-radius: 25px; }
     .pricing-card h3 { font-size: 32px; }
     .price-amount { font-size: 48px; }
@@ -2232,7 +2232,7 @@ footer {
     }
     .pricing-card-featured {
         transform: scale(1);
-        order: -1;
+        order: 1;
     }
     .pricing-savings { padding: 10px 15px; margin-bottom: 20px; }
     .pricing-savings span { font-size: 14px; }
