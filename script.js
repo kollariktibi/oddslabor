@@ -1,3 +1,22 @@
+// Member count counter animation
+document.addEventListener('DOMContentLoaded', function () {
+    const el = document.getElementById('memberCount');
+    if (!el) return;
+    const target = 450;
+    const duration = 1500;
+    const start = performance.now();
+    function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(eased * target);
+        el.textContent = current + '+';
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = '450+';
+    }
+    requestAnimationFrame(update);
+});
+
 // Mobile Menu Functions
 function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
