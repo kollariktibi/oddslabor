@@ -276,18 +276,70 @@
             font-size: 14px;
         }
 
-        /* Filters */
-        .filter-section {
-            margin-bottom: 32px;
+        /* Filter toggle bar */
+        .filter-toggle-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
         }
+
+        .filter-toggle-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: 1px solid rgba(0,255,163,0.25);
+            background: transparent;
+            color: #a0b5cc;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .filter-toggle-btn:hover, .filter-toggle-btn.open {
+            background: rgba(0,255,163,0.08);
+            border-color: rgba(0,255,163,0.5);
+            color: #00ff9f;
+        }
+
+        .filter-active-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #00ff9f;
+            color: #0a0e1a;
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        /* Filter panel */
+        .filter-panel {
+            display: none;
+            background: linear-gradient(135deg, rgba(15,23,42,0.98), rgba(10,14,26,0.98));
+            border: 1px solid rgba(0,255,163,0.12);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .filter-panel.open { display: block; }
 
         .filter-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
+
+        .filter-row:last-child { margin-bottom: 0; }
 
         .filter-label {
             font-size: 11px;
@@ -301,10 +353,11 @@
             display: flex;
             gap: 6px;
             flex-wrap: wrap;
+            flex: 1;
         }
 
         .filter-btn {
-            padding: 6px 14px;
+            padding: 5px 13px;
             border-radius: 30px;
             border: 1px solid rgba(0,255,163,0.15);
             background: transparent;
@@ -328,8 +381,7 @@
         }
 
         .filter-reset {
-            margin-left: auto;
-            padding: 6px 16px;
+            padding: 5px 14px;
             border-radius: 30px;
             border: 1px solid rgba(255,77,109,0.2);
             background: transparent;
@@ -341,20 +393,7 @@
             transition: all 0.2s;
         }
 
-        .filter-reset:hover {
-            background: rgba(255,77,109,0.08);
-        }
-
-        .filter-result-count {
-            font-size: 12px;
-            color: #5a6a7e;
-            margin-top: 8px;
-        }
-
-        .filter-result-count span {
-            color: #00ff9f;
-            font-weight: 700;
-        }
+        .filter-reset:hover { background: rgba(255,77,109,0.08); }
 
         /* Chart */
         .chart-section {
@@ -542,11 +581,18 @@
             <!-- Summary -->
             <div class="summary-cards" id="summaryCards"></div>
 
-            <!-- Filters -->
-            <div class="filter-section" id="filterSection"></div>
-
             <!-- Chart -->
             <div class="chart-section" id="chartSection"></div>
+
+            <!-- Filter toggle + panel -->
+            <div class="filter-toggle-bar">
+                <button class="filter-toggle-btn" id="filterToggleBtn" onclick="toggleFilterPanel()">
+                    <span>Szűrők</span>
+                    <span id="filterBadge" style="display:none" class="filter-active-badge">0</span>
+                </button>
+                <div id="filterActiveInfo" style="font-size:12px;color:#5a6a7e"></div>
+            </div>
+            <div class="filter-panel" id="filterPanel"></div>
 
             <!-- Breakdown tables -->
             <div class="breakdown-section" id="breakdownSection"></div>
@@ -941,6 +987,7 @@
 
     let currentTab = 'vip';
     let filters = { result: 'all', stake: 'all', odds: 'all', type: 'all' };
+    let filterPanelOpen = false;
 
     function switchTab(tab) {
         currentTab = tab;
@@ -959,6 +1006,12 @@
     function resetFilters() {
         filters = { result: 'all', stake: 'all', odds: 'all', type: 'all' };
         render();
+    }
+
+    function toggleFilterPanel() {
+        filterPanelOpen = !filterPanelOpen;
+        document.getElementById('filterPanel').classList.toggle('open', filterPanelOpen);
+        document.getElementById('filterToggleBtn').classList.toggle('open', filterPanelOpen);
     }
 
     function formatMonth(yyyymm) {
@@ -1082,10 +1135,9 @@
     }
 
     function renderFilters() {
-        const fEl = document.getElementById('filterSection');
         const mk = (key, val, label) =>
             `<button class="filter-btn ${filters[key] === val ? 'active' : ''}" onclick="setFilter('${key}','${val}')">${label}</button>`;
-        fEl.innerHTML = `
+        document.getElementById('filterPanel').innerHTML = `
             <div class="filter-row">
                 <span class="filter-label">Eredmény</span>
                 <div class="filter-group">
@@ -1094,14 +1146,14 @@
                     ${mk('result','loss','Veszített')}
                     ${mk('result','push','Visszatolt')}
                 </div>
-                <button class="filter-reset" onclick="resetFilters()">Szűrők törlése</button>
+                <button class="filter-reset" onclick="resetFilters()">Törlés</button>
             </div>
             <div class="filter-row">
                 <span class="filter-label">Tét méret</span>
                 <div class="filter-group">
                     ${mk('stake','all','Összes')}
                     ${mk('stake','small','Kis (≤1u)')}
-                    ${mk('stake','medium','Közepes (1.5-2u)')}
+                    ${mk('stake','medium','Közepes (1.5–2u)')}
                     ${mk('stake','big','Nagy (≥3u)')}
                 </div>
             </div>
@@ -1114,17 +1166,15 @@
                     ${mk('odds','high','2.00+')}
                 </div>
             </div>
-            <div class="filter-row">
-                <span class="filter-label">Tipp típus</span>
-                <div class="filter-group">
-                    ${mk('type','all','Összes')}
-                    ${mk('type','winner','Mérkőzés győztese')}
-                    ${mk('type','gamecount','Játékszám')}
-                    ${mk('type','set','Szett')}
-                    ${mk('type','exact','Pontos végeredmény')}
-                </div>
-            </div>
         `;
+
+        // Update badge
+        const activeCount = Object.values(filters).filter(v => v !== 'all').length;
+        const badge = document.getElementById('filterBadge');
+        const info  = document.getElementById('filterActiveInfo');
+        badge.style.display = activeCount > 0 ? 'flex' : 'none';
+        badge.textContent = activeCount;
+        info.textContent = activeCount > 0 ? `${activeCount} aktív szűrő` : '';
     }
 
     function renderChart(allBets) {
@@ -1177,13 +1227,6 @@
             { key: 'medium', label: '1.5 – 2u' },
             { key: 'big',    label: '≥ 3u' },
         ];
-        const typeGroups = [
-            { key: 'winner',    label: 'M. Győztese' },
-            { key: 'gamecount', label: 'Játékszám' },
-            { key: 'set',       label: 'Szett' },
-            { key: 'exact',     label: 'Pontos' },
-        ];
-
         const oddsGroupFn = b => {
             if (b.odds < 1.70) return 'low';
             if (b.odds < 2.00) return 'mid';
@@ -1212,7 +1255,6 @@
 
         const oddsData  = breakdownStats(filtered, oddsGroupFn, oddsGroups);
         const stakeData = breakdownStats(filtered, stakeGroupFn, stakeGroups);
-        const typeData  = breakdownStats(filtered, b => getBetType(b.pick), typeGroups);
 
         document.getElementById('breakdownSection').innerHTML = `
             <div class="breakdown-card">
@@ -1222,10 +1264,6 @@
             <div class="breakdown-card">
                 <div class="breakdown-title">Tét méret szerint</div>
                 ${tableHTML(stakeData)}
-            </div>
-            <div class="breakdown-card" style="grid-column: 1 / -1">
-                <div class="breakdown-title">Tipp típus szerint</div>
-                ${tableHTML(typeData)}
             </div>
         `;
     }
