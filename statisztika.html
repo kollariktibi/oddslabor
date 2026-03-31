@@ -147,7 +147,7 @@
         .month-profit {
             font-size: 16px;
             font-weight: 800;
-            min-width: 80px;
+            min-width: 100px;
             text-align: right;
         }
 
@@ -228,6 +228,11 @@
         .bet-odds {
             color: #a0b5cc;
             font-weight: 600;
+        }
+
+        .bet-stake {
+            color: #7a8ea6;
+            white-space: nowrap;
         }
 
         .bet-unit {
@@ -337,47 +342,91 @@
     // ============================================================
     // ADATOK — IDE VEZETED A TIPPEKET
     // Formátum:
-    // { date: 'ÉÉÉÉ-HH-NN', match: 'Játékos1 vs Játékos2', pick: 'tipp leírása', odds: 1.85, unit: +1.5 }
+    // { date: 'ÉÉÉÉ-HH-NN', match: 'Játékos1 vs Játékos2', pick: 'tipp leírása', odds: 1.85, stake: 1.50, unit: +1.5 }
     // unit: pozitív = nyert, negatív = veszített, 0 = visszatolt
+    // stake: megjátszott egység
+    // MEGJEGYZÉS: A februári dátumok egy része közelítő érték (kivéve feb 24-25)
+    // Pótlandó stat12-18, stat20-21, stat23-24, stat27-28 képekből
     // ============================================================
 
     const DATA = {
         vip: [
-            // Január 2026
-            { date: '2026-01-06', match: 'Simakin I. vs Sakellaridis S.', pick: 'Mérkőzés Győztese: Sakellaridis S.', odds: 1.85, unit: -1.50 },
-            { date: '2026-01-07', match: 'Alcaraz C. vs Zverev A.', pick: 'Játékok száma: 37.5 Felett', odds: 1.85, unit: +0.85 },
-            { date: '2026-01-07', match: 'Faria J. vs Galarneau A.', pick: 'Mérkőzés Győztese: Faria J.', odds: 1.71, unit: -1.00 },
-            { date: '2026-01-08', match: 'Tseng C. H. vs Dutra Da Silva D.', pick: 'Pontos végeredmény: 2:0 Tseng C. H.', odds: 1.80, unit: +0.80 },
-            { date: '2026-01-08', match: 'Pegula J. vs Rybakina E.', pick: 'Játékok száma: 21.5 Felett', odds: 1.70, unit: +1.05 },
-            { date: '2026-01-09', match: 'Blanchet U. vs Grenier H.', pick: 'Mérkőzés Győztese: Blanchet U.', odds: 1.80, unit: +0.80 },
-            { date: '2026-01-09', match: 'Pacheco Mendez R. vs Nardi L.', pick: 'Pontos Végeredmény: 0:2 Nardi L.', odds: 2.02, unit: +1.02 },
-            { date: '2026-01-10', match: 'Glinka D. vs Kukushkin M.', pick: 'Mérkőzés Győztese: Glinka D.', odds: 1.88, unit: +1.76 },
-            { date: '2026-01-10', match: 'Musetti L. vs Djokovic N.', pick: 'Játékok száma: 34.5 Felett', odds: 1.50, unit: 0.00 },
-            { date: '2026-01-11', match: 'Rybakina E. vs Swiatek I.', pick: 'Mérkőzés Győztese: Rybakina E.', odds: 1.85, unit: +0.85 },
-            { date: '2026-01-11', match: 'Neumayer L. vs Fearnley J.', pick: 'Játékszám: +2.5 Neumayer L.', odds: 2.30, unit: -1.50 },
-            { date: '2026-01-13', match: 'Zverev A. vs Tien L.', pick: 'Mérkőzés Győztese: Zverev A.', odds: 1.48, unit: +0.96 },
-            { date: '2026-01-13', match: 'Alcaraz C. vs De Minaur A.', pick: '-', odds: 1.75, unit: -1.00 },
-            { date: '2026-01-13', match: 'Zverev A. vs Cerundolo F.', pick: 'Játékszám: -2.5 Zverev A.', odds: 1.55, unit: +1.65 },
-            { date: '2026-01-14', match: 'Musetti L. vs Fritz T.', pick: 'I. Szett: Fritz T.', odds: 1.77, unit: -1.00 },
-            { date: '2026-01-15', match: 'Darderi L. vs Sinner J.', pick: 'Játékok száma: 27.5 Felett', odds: 1.66, unit: +0.99 },
-            { date: '2026-01-16', match: 'Musetti L. vs Machac T.', pick: 'Mérkőzés Győztese: Musetti L.', odds: 1.57, unit: +1.14 },
-            { date: '2026-01-17', match: 'Medvedev D. vs Tien L.', pick: 'Játszma hendikep: +1.5 Tien L.', odds: 1.85, unit: +0.85 },
-            { date: '2026-01-18', match: 'Bublik A. vs De Minaur A.', pick: 'Játékszám: -2.5 De Minaur A.', odds: 1.87, unit: +0.87 },
-            { date: '2026-01-19', match: 'Hurkacz H. vs Quinn E.', pick: 'Játékszám: -4.5 Hurkacz H.', odds: 1.88, unit: -1.00 },
-            { date: '2026-01-20', match: 'Sanchez Izquierdo N. vs Palosi S.', pick: 'Mérkőzés Győztese: Palosi S.', odds: 2.75, unit: -1.00 },
-            { date: '2026-01-21', match: 'Khachanov K. vs Darderi L.', pick: 'Szettck Száma: 3.5 Felett', odds: 1.72, unit: +1.44 },
-            { date: '2026-01-22', match: 'Tien L. vs Shevchenko A.', pick: 'Játékszám: -6.5 Tien L.', odds: 1.83, unit: +0.83 },
-            { date: '2026-01-23', match: 'Hijikata R. vs Vacherot V.', pick: 'Szettck Száma: 3.5 Felett', odds: 1.48, unit: +0.96 },
-            { date: '2026-01-24', match: 'Mensik J. vs Jodar R.', pick: 'Mérkőzés Győztese: Mensik J.', odds: 1.57, unit: +1.71 },
-            { date: '2026-01-25', match: 'Valentova T. vs Joint M.', pick: '-', odds: 1.80, unit: -1.00 },
-            { date: '2026-01-26', match: 'Etcheverry T. M. vs Fery A.', pick: 'Mérkőzés Győztese: Etcheverry T. M.', odds: 1.66, unit: +0.99 },
-            { date: '2026-01-27', match: 'Majchrzak K. vs Marozsán F.', pick: 'Szettck száma: 3.5 Felett', odds: 1.50, unit: -1.50 },
-            { date: '2026-01-28', match: 'Hunter S. vs Bouzas Maneiro J.', pick: '+1.5 Szett: Hunter S.', odds: 1.75, unit: +1.50 },
-            { date: '2026-01-29', match: 'Muchova K. vs Cristian J.', pick: 'Játékszám: +5.5 Cristian J.', odds: 1.75, unit: +2.25 },
-            { date: '2026-01-30', match: 'Cirstea S. vs Lys E.', pick: 'Mérkőzés Győztese: Cirstea S.', odds: 1.87, unit: +1.74 },
-            { date: '2026-01-30', match: 'Majchrzak K. vs Fearnley J.', pick: 'Szettck Száma: 4.5 Felett', odds: 3.30, unit: -1.00 },
-            { date: '2026-01-31', match: 'Djere L. vs Wawrinka S.', pick: 'Mérkőzés Győztese: Wawrinka S.', odds: 1.87, unit: +0.87 },
-            { date: '2026-01-31', match: 'Budkov Kjaer N. vs Opelka R.', pick: 'Mérkőzés Győztese: Budkov Kjaer N.', odds: 2.60, unit: -0.50 },
+            // === JANUÁR 2026 ===
+            { date: '2026-01-06', match: 'Simakin I. vs Sakellaridis S.', pick: 'Mérkőzés Győztese: Sakellaridis S.', odds: 1.85, stake: 1.50, unit: -1.50 },
+            { date: '2026-01-07', match: 'Alcaraz C. vs Zverev A.', pick: 'Játékok száma: 37.5 Felett', odds: 1.85, stake: 1.00, unit: +0.85 },
+            { date: '2026-01-07', match: 'Faria J. vs Galarneau A.', pick: 'Mérkőzés Győztese: Faria J.', odds: 1.71, stake: 1.00, unit: -1.00 },
+            { date: '2026-01-08', match: 'Tseng C. H. vs Dutra Da Silva D.', pick: 'Pontos végeredmény: 2:0 Tseng C. H.', odds: 1.80, stake: 1.00, unit: +0.80 },
+            { date: '2026-01-08', match: 'Pegula J. vs Rybakina E.', pick: 'Játékok száma: 21.5 Felett', odds: 1.70, stake: 1.50, unit: +1.05 },
+            { date: '2026-01-09', match: 'Blanchet U. vs Grenier H.', pick: 'Mérkőzés Győztese: Blanchet U.', odds: 1.80, stake: 1.00, unit: +0.80 },
+            { date: '2026-01-09', match: 'Pacheco Mendez R. vs Nardi L.', pick: 'Pontos Végeredmény: 0:2 Nardi L.', odds: 2.02, stake: 1.00, unit: +1.02 },
+            { date: '2026-01-10', match: 'Glinka D. vs Kukushkin M.', pick: 'Mérkőzés Győztese: Glinka D.', odds: 1.88, stake: 2.00, unit: +1.76 },
+            { date: '2026-01-10', match: 'Musetti L. vs Djokovic N.', pick: 'Játékok száma: 34.5 Felett', odds: 1.50, stake: 2.00, unit: 0.00 },
+            { date: '2026-01-11', match: 'Rybakina E. vs Swiatek I.', pick: 'Mérkőzés Győztese: Rybakina E.', odds: 1.85, stake: 1.00, unit: +0.85 },
+            { date: '2026-01-11', match: 'Neumayer L. vs Fearnley J.', pick: 'Játékszám: +2.5 Neumayer L.', odds: 2.30, stake: 1.50, unit: -1.50 },
+            { date: '2026-01-13', match: 'Zverev A. vs Tien L.', pick: 'Mérkőzés Győztese: Zverev A.', odds: 1.48, stake: 2.00, unit: +0.96 },
+            { date: '2026-01-13', match: 'Alcaraz C. vs De Minaur A.', pick: '-', odds: 1.75, stake: 1.00, unit: -1.00 },
+            { date: '2026-01-13', match: 'Zverev A. vs Cerundolo F.', pick: 'Játékszám: -2.5 Zverev A.', odds: 1.55, stake: 3.00, unit: +1.65 },
+            { date: '2026-01-14', match: 'Musetti L. vs Fritz T.', pick: 'I. Szett: Fritz T.', odds: 1.77, stake: 1.00, unit: -1.00 },
+            { date: '2026-01-15', match: 'Darderi L. vs Sinner J.', pick: 'Játékok száma: 27.5 Felett', odds: 1.66, stake: 1.50, unit: +0.99 },
+            { date: '2026-01-16', match: 'Musetti L. vs Machac T.', pick: 'Mérkőzés Győztese: Musetti L.', odds: 1.57, stake: 2.00, unit: +1.14 },
+            { date: '2026-01-17', match: 'Medvedev D. vs Tien L.', pick: 'Játszma hendikep: +1.5 Tien L.', odds: 1.85, stake: 1.00, unit: +0.85 },
+            { date: '2026-01-18', match: 'Bublik A. vs De Minaur A.', pick: 'Játékszám: -2.5 De Minaur A.', odds: 1.87, stake: 1.00, unit: +0.87 },
+            { date: '2026-01-19', match: 'Hurkacz H. vs Quinn E.', pick: 'Játékszám: -4.5 Hurkacz H.', odds: 1.88, stake: 1.00, unit: -1.00 },
+            { date: '2026-01-20', match: 'Sanchez Izquierdo N. vs Palosi S.', pick: 'Mérkőzés Győztese: Palosi S.', odds: 2.75, stake: 1.00, unit: -1.00 },
+            { date: '2026-01-21', match: 'Khachanov K. vs Darderi L.', pick: 'Szettck Száma: 3.5 Felett', odds: 1.72, stake: 2.00, unit: +1.44 },
+            { date: '2026-01-22', match: 'Tien L. vs Shevchenko A.', pick: 'Játékszám: -6.5 Tien L.', odds: 1.83, stake: 1.00, unit: +0.83 },
+            { date: '2026-01-23', match: 'Hijikata R. vs Vacherot V.', pick: 'Szettck Száma: 3.5 Felett', odds: 1.48, stake: 2.00, unit: +0.96 },
+            { date: '2026-01-24', match: 'Mensik J. vs Jodar R.', pick: 'Mérkőzés Győztese: Mensik J.', odds: 1.57, stake: 3.00, unit: +1.71 },
+            { date: '2026-01-25', match: 'Valentova T. vs Joint M.', pick: '-', odds: 1.80, stake: 1.00, unit: -1.00 },
+            { date: '2026-01-26', match: 'Etcheverry T. M. vs Fery A.', pick: 'Mérkőzés Győztese: Etcheverry T. M.', odds: 1.66, stake: 1.50, unit: +0.99 },
+            { date: '2026-01-27', match: 'Majchrzak K. vs Marozsán F.', pick: 'Szettck száma: 3.5 Felett', odds: 1.50, stake: 1.50, unit: -1.50 },
+            { date: '2026-01-28', match: 'Hunter S. vs Bouzas Maneiro J.', pick: '+1.5 Szett: Hunter S.', odds: 1.75, stake: 2.00, unit: +1.50 },
+            { date: '2026-01-29', match: 'Muchova K. vs Cristian J.', pick: 'Játékszám: +5.5 Cristian J.', odds: 1.75, stake: 3.00, unit: +2.25 },
+            { date: '2026-01-30', match: 'Cirstea S. vs Lys E.', pick: 'Mérkőzés Győztese: Cirstea S.', odds: 1.87, stake: 2.00, unit: +1.74 },
+            { date: '2026-01-30', match: 'Majchrzak K. vs Fearnley J.', pick: 'Szettck Száma: 4.5 Felett', odds: 3.30, stake: 1.00, unit: -1.00 },
+            { date: '2026-01-31', match: 'Djere L. vs Wawrinka S.', pick: 'Mérkőzés Győztese: Wawrinka S.', odds: 1.87, stake: 1.00, unit: +0.87 },
+            { date: '2026-01-31', match: 'Budkov Kjaer N. vs Opelka R.', pick: 'Mérkőzés Győztese: Budkov Kjaer N.', odds: 2.60, stake: 0.50, unit: -0.50 },
+
+            // === FEBRUÁR 2026 ===
+            // !! stat12-18, stat20-21, stat23-24, stat27-28, stat30-31 (részben) még pótlandó !!
+            // Dátumok kb. becsültek ahol nincs konkrét adat (kivéve 02-24 és 02-25)
+
+            // stat19 (~febr. 10)
+            { date: '2026-02-10', match: 'Li A. vs Cocciaretto E.', pick: 'Mérkőzés Győztese: Li A.', odds: 1.93, stake: 1.93, unit: -1.93 },
+            { date: '2026-02-10', match: 'Lajal M. vs Glinka D.', pick: 'Mérkőzés Győztese: Lajal M.', odds: 1.74, stake: 1.50, unit: 0.00 },
+            { date: '2026-02-10', match: 'Gracheva V. vs Sakkari M.', pick: 'Mérkőzés Győztese: Sakkari M.', odds: 1.47, stake: 3.00, unit: +1.41 },
+            { date: '2026-02-10', match: 'Harris L. vs Damas M.', pick: 'Játékszám: +5.5 Damas M.', odds: 1.59, stake: 2.00, unit: -2.00 },
+
+            // stat22 (~febr. 13)
+            { date: '2026-02-13', match: 'Collignon R. vs Bonzi B.', pick: 'Mérkőzés Győztese: Collignon R.', odds: 1.54, stake: 2.00, unit: +1.08 },
+            { date: '2026-02-13', match: 'Galarneau A. vs Ilagan A.', pick: 'Játékok száma: 22.5 Felett', odds: 2.15, stake: 1.00, unit: -1.00 },
+            { date: '2026-02-13', match: 'Moller E. vs Passaro F.', pick: 'Mérkőzés Győztese: Passaro F.', odds: 1.55, stake: 1.50, unit: +0.83 },
+
+            // stat25 (~febr. 17)
+            { date: '2026-02-17', match: 'Tsitsipas S. vs Rublev A.', pick: 'Mérkőzés Győztese: Rublev A.', odds: 1.70, stake: 1.50, unit: +1.05 },
+            { date: '2026-02-17', match: 'Cerundolo F. vs Tirante T.A.', pick: 'Játékszám: +5.5 Tirante T.A.', odds: 1.60, stake: 1.50, unit: +0.90 },
+            { date: '2026-02-17', match: 'Mensik J. vs Zhang Z.', pick: 'Mérkőzés Győztese: Zhang Z.', odds: 3.10, stake: 1.00, unit: -1.00 },
+            { date: '2026-02-17', match: 'Gueymard Wayenburg S. vs Chidekh C.', pick: 'Mérkőzés Győztese: Chidekh C.', odds: 1.87, stake: 1.00, unit: +0.87 },
+
+            // stat26 (~febr. 19)
+            { date: '2026-02-19', match: 'Wong C. vs Cobolli F.', pick: 'Mérkőzés Győztese: Cobolli F.', odds: 1.74, stake: 1.50, unit: +1.11 },
+            { date: '2026-02-19', match: 'Blockx A. vs Bonzi B.', pick: 'Mérkőzés Győztese: Blockx A.', odds: 1.62, stake: 2.00, unit: +1.24 },
+            { date: '2026-02-19', match: 'Cina F. vs Sakamoto R.', pick: '-', odds: 2.60, stake: 1.00, unit: -1.00 },
+            { date: '2026-02-19', match: 'Dzumhur D. vs Faria J.', pick: 'Mérkőzés Győztese: Dzumhur D.', odds: 2.25, stake: 1.50, unit: -1.50 },
+
+            // stat29 (febr. 24-25 — megerősített dátumok)
+            { date: '2026-02-24', match: 'Svcrina D. vs Cobolli F.', pick: 'Mérkőzés Győztese: Cobolli F.', odds: 1.67, stake: 2.00, unit: +1.34 },
+            { date: '2026-02-24', match: 'Navone M. vs Darderi L.', pick: '-', odds: 2.90, stake: 1.00, unit: -1.00 },
+            { date: '2026-02-24', match: 'Mensik J. vs Popyrin A.', pick: 'Játékok száma: 21.5 Felett', odds: 1.69, stake: 1.50, unit: -1.50 },
+            { date: '2026-02-25', match: 'Pacheco Mendez R. vs Cobolli F.', pick: 'Játékok száma: 20.5 Felett', odds: 1.80, stake: 1.50, unit: +1.20 },
+
+            // stat30 (~febr. 26)
+            { date: '2026-02-26', match: 'Oliveri G.A. vs Polasik S.', pick: 'Jobb szett +0.5: Oliveri A.', odds: 1.90, stake: 1.50, unit: -1.50 },
+            { date: '2026-02-26', match: 'Volkov D. vs Navez C.', pick: '-', odds: 1.78, stake: 2.00, unit: +1.56 },
+
+            // stat31 (~febr. 27)
+            { date: '2026-02-27', match: 'Tabilo A. vs Baez S.', pick: 'Mérkőzés Győztese: Baez S.', odds: 2.08, stake: 1.50, unit: +1.62 },
+            { date: '2026-02-27', match: 'Schwarzer M. vs Strickar D.', pick: '-', odds: 1.74, stake: 1.00, unit: -1.00 },
         ],
         free: [
             // Ingyenes csoport tippjei
@@ -441,7 +490,7 @@
             </div>
             <div class="summary-card">
                 <div class="s-label">Összes egység</div>
-                <div class="s-value ${totalUnits >= 0 ? 'positive' : 'negative'}">${totalUnits >= 0 ? '+' : ''}${totalUnits.toFixed(1)}u</div>
+                <div class="s-value ${totalUnits >= 0 ? 'positive' : 'negative'}">${totalUnits >= 0 ? '+' : ''}${totalUnits.toFixed(2)} egység</div>
             </div>
             <div class="summary-card">
                 <div class="s-label">Hónap</div>
@@ -466,12 +515,18 @@
 
             const rows = monthBets.slice().reverse().map(b => {
                 const res = getResult(b.unit);
-                const unitStr = b.unit > 0 ? `+${b.unit.toFixed(1)}u` : b.unit < 0 ? `${b.unit.toFixed(1)}u` : '0u';
+                const unitStr = b.unit > 0
+                    ? `+${b.unit.toFixed(2)} egység`
+                    : b.unit < 0
+                    ? `${b.unit.toFixed(2)} egység`
+                    : '0 egység';
+                const stakeStr = b.stake ? `${b.stake.toFixed(2)} egység` : '-';
                 return `
                     <tr>
                         <td class="bet-date">${b.date.slice(5).replace('-', '.')}</td>
                         <td><div class="bet-match">${b.match}</div><div class="bet-pick">${b.pick}</div></td>
                         <td class="bet-odds">@${b.odds.toFixed(2)}</td>
+                        <td class="bet-stake">${stakeStr}</td>
                         <td><span class="result-badge ${res}">${res === 'win' ? 'NYERT' : res === 'loss' ? 'VESZÍTETT' : 'VISSZA'}</span></td>
                         <td class="bet-unit ${res}">${unitStr}</td>
                     </tr>`;
@@ -484,7 +539,7 @@
                         <div class="month-meta">
                             <div class="month-stat">${monthBets.length} fogadás</div>
                             <div class="month-stat"><span>${mWins}W</span> / <span>${mLosses}L</span></div>
-                            <div class="month-profit ${isPos ? 'pos' : 'neg'}">${isPos ? '+' : ''}${mUnits.toFixed(1)}u</div>
+                            <div class="month-profit ${isPos ? 'pos' : 'neg'}">${isPos ? '+' : ''}${mUnits.toFixed(2)} egység</div>
                         </div>
                         <span class="month-toggle">+</span>
                     </div>
@@ -495,6 +550,7 @@
                                     <th>Dátum</th>
                                     <th>Meccs / Tipp</th>
                                     <th>Odds</th>
+                                    <th>Tét</th>
                                     <th>Eredmény</th>
                                     <th style="text-align:right">Egység</th>
                                 </tr>
