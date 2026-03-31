@@ -661,8 +661,10 @@
         // Summary totals
         const totalBets = bets.length;
         const wins = bets.filter(b => b.unit > 0).length;
+        const losses = bets.filter(b => b.unit < 0).length;
         const totalUnits = bets.reduce((s, b) => s + b.unit, 0);
-        const winRate = totalBets ? Math.round((wins / totalBets) * 100) : 0;
+        const decidedBets = wins + losses;
+        const winRate = decidedBets ? Math.round((wins / decidedBets) * 100) : 0;
 
         // Render summary
         const summaryEl = document.getElementById('summaryCards');
