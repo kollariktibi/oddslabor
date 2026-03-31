@@ -396,78 +396,6 @@
         .filter-reset:hover { background: rgba(255,77,109,0.08); }
 
         /* Chart */
-        .chart-section {
-            background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(10,14,26,0.95));
-            border: 1px solid rgba(0,255,163,0.1);
-            border-radius: 20px;
-            padding: 28px;
-            margin-bottom: 28px;
-        }
-
-        .chart-title {
-            font-size: 13px;
-            color: #5a6a7e;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-
-        .chart-bars {
-            display: flex;
-            align-items: flex-end;
-            gap: 8px;
-            height: 100px;
-            padding-bottom: 28px;
-            position: relative;
-        }
-
-        .chart-bars::after {
-            content: '';
-            position: absolute;
-            bottom: 28px;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: rgba(255,255,255,0.06);
-        }
-
-        .chart-bar-wrap {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            position: relative;
-        }
-
-        .chart-bar {
-            width: 100%;
-            border-radius: 4px 4px 0 0;
-            min-height: 3px;
-            transition: opacity 0.2s;
-        }
-
-        .chart-bar.pos { background: linear-gradient(180deg, #00ff9f, rgba(0,255,163,0.4)); }
-        .chart-bar.neg { background: linear-gradient(180deg, rgba(255,77,109,0.4), #ff4d6d); border-radius: 0 0 4px 4px; }
-
-        .chart-bar-label {
-            font-size: 9px;
-            color: #5a6a7e;
-            white-space: nowrap;
-            position: absolute;
-            bottom: -20px;
-        }
-
-        .chart-bar-val {
-            font-size: 9px;
-            font-weight: 700;
-            white-space: nowrap;
-            margin-bottom: 2px;
-        }
-
-        .chart-bar-val.pos { color: #00ff9f; }
-        .chart-bar-val.neg { color: #ff4d6d; }
-
         /* Breakdown */
         .breakdown-section {
             display: grid;
@@ -536,7 +464,7 @@
             .bet-unit { text-align: left; }
             .breakdown-section { grid-template-columns: 1fr; }
             .filter-label { min-width: 60px; font-size: 10px; }
-            .chart-section { padding: 16px; }
+
         }
     </style>
 </head>
@@ -580,9 +508,6 @@
 
             <!-- Summary -->
             <div class="summary-cards" id="summaryCards"></div>
-
-            <!-- Chart -->
-            <div class="chart-section" id="chartSection"></div>
 
             <!-- Filter toggle + panel -->
             <div class="filter-toggle-bar">
@@ -1177,36 +1102,6 @@
         info.textContent = activeCount > 0 ? `${activeCount} aktív szűrő` : '';
     }
 
-    function renderChart(allBets) {
-        const byMonth = {};
-        allBets.forEach(b => {
-            const ym = b.date.slice(0, 7);
-            if (!byMonth[ym]) byMonth[ym] = 0;
-            byMonth[ym] += b.unit;
-        });
-        const months = Object.keys(byMonth).sort();
-        const vals = months.map(m => byMonth[m]);
-        const maxAbs = Math.max(...vals.map(Math.abs), 1);
-        const BAR_H = 80;
-
-        const bars = months.map((ym, i) => {
-            const v = vals[i];
-            const h = Math.max(3, Math.round(Math.abs(v) / maxAbs * BAR_H));
-            const pos = v >= 0;
-            const label = formatMonth(ym).split(' ')[0].slice(0, 3);
-            return `
-                <div class="chart-bar-wrap">
-                    <div class="chart-bar-val ${pos ? 'pos' : 'neg'}">${pos ? '+' : ''}${v.toFixed(1)}</div>
-                    <div class="chart-bar ${pos ? 'pos' : 'neg'}" style="height:${h}px"></div>
-                    <div class="chart-bar-label">${label}</div>
-                </div>`;
-        }).join('');
-
-        document.getElementById('chartSection').innerHTML = `
-            <div class="chart-title">Havi profit (egység)</div>
-            <div class="chart-bars">${bars}</div>
-        `;
-    }
 
     function breakdownStats(bets, groupFn, groups) {
         return groups.map(g => {
@@ -1283,7 +1178,6 @@
 
         renderSummary(filtered, allBets);
         renderFilters();
-        renderChart(allBets);
         renderBreakdown(filtered);
 
         // Monthly accordion
