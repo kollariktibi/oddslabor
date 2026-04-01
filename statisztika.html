@@ -99,6 +99,32 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .summary-card .s-sub {
+            font-size: 12px;
+            color: #5a6a7e;
+            margin-top: 6px;
+        }
+        .summary-card .s-sub.positive { color: #00cc80; }
+        .summary-card .s-sub.negative { color: #cc3d55; }
+
+        .unit-info-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: #5a6a7e;
+        }
+        .unit-info-bar span {
+            background: rgba(0,255,163,0.07);
+            border: 1px solid rgba(0,255,163,0.15);
+            border-radius: 8px;
+            padding: 4px 12px;
+            color: #00cc80;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
         /* Month accordion */
         .month-block {
             background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(10,14,26,0.95));
@@ -507,6 +533,7 @@
             </div>
 
             <!-- Summary -->
+            <div class="unit-info-bar">💡 Egységérték: <span>1 egység = 50 000 Ft</span></div>
             <div class="summary-cards" id="summaryCards"></div>
 
             <!-- Filter toggle + panel -->
@@ -1043,6 +1070,7 @@
             <div class="summary-card">
                 <div class="s-label">Összes egység</div>
                 <div class="s-value ${s.totalUnits >= 0 ? 'positive' : 'negative'}">${s.totalUnits >= 0 ? '+' : ''}${s.totalUnits.toFixed(2)}</div>
+                <div class="s-sub ${s.totalUnits >= 0 ? 'positive' : 'negative'}">${s.totalUnits >= 0 ? '+' : ''}${Math.round(s.totalUnits * 50000).toLocaleString('hu-HU')} Ft</div>
             </div>
             <div class="summary-card">
                 <div class="s-label">ROI</div>
