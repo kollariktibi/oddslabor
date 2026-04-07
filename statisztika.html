@@ -534,6 +534,10 @@
 
             <!-- Summary -->
             <div class="unit-info-bar">💡 Egységérték: <span>1 egység = 50 000 Ft</span></div>
+            <div id="summaryModeBar" style="display:none;align-items:center;gap:10px;margin-bottom:10px;font-size:13px;color:#7a8ea6;">
+                <span id="summaryModeLabel" style="background:rgba(0,255,163,0.08);border:1px solid rgba(0,255,163,0.2);border-radius:8px;padding:4px 12px;color:#00cc80;font-weight:600;"></span>
+                <button onclick="resetSummaryMode()" style="background:transparent;border:1px solid rgba(160,181,204,0.2);border-radius:8px;padding:4px 12px;color:#7a8ea6;font-size:12px;cursor:pointer;font-family:inherit;">× Összes nézet</button>
+            </div>
             <div class="summary-cards" id="summaryCards"></div>
 
             <!-- Filter toggle + panel -->
@@ -1229,9 +1233,17 @@
         `;
     }
 
+    let _currentFilteredBets = [];
+    let _currentAllBets = [];
+    let _activeSummaryMonth = null;
+
     function render() {
         const allBets  = DATA[currentTab];
         const filtered = applyFilters(allBets);
+        _currentFilteredBets = filtered;
+        _currentAllBets = allBets;
+        _activeSummaryMonth = null;
+        document.getElementById('summaryModeBar').style.display = 'none';
 
         // Group filtered by month
         const byMonth = {};
@@ -1313,7 +1325,57 @@
     }
 
     function toggleMonth(id) {
-        document.getElementById(id).classList.toggle('open');
+        const block = document.getElementById(id);
+        const wasOpen = block.classList.contains('open');
+        block.classList.toggle('open');
+        const ym = id.replace('month-', '');
+        if (!wasOpen) {
+            // Megnyitás → havi statisztika a ticketekbe
+            _activeSummaryMonth = ym;
+            const monthBets = _currentFilteredBets.filter(b => b.date.slice(0, 7) === ym);
+            renderSummaryForMonth(monthBets, ym);
+        } else if (_activeSummaryMonth === ym) {
+            // Bezárás → visszaállítás összesre
+            _activeSummaryMonth = null;
+            document.getElementById('summaryModeBar').style.display = 'none';
+            renderSummary(_currentFilteredBets, _currentAllBets);
+        }
+    }
+
+    function renderSummaryForMonth(monthBets, ym) {
+        const s = calcStats(monthBets);
+        const summaryEl = document.getElementById('summaryCards');
+        summaryEl.innerHTML = `
+            <div class="summary-card">
+                <div class="s-label">Fogadások</div>
+                <div class="s-value neutral">${monthBets.length}</div>
+            </div>
+            <div class="summary-card">
+                <div class="s-label">Találati arány</div>
+                <div class="s-value ${s.winRate >= 50 ? 'positive' : 'negative'}">${s.winRate.toFixed(1)}%</div>
+                <div class="s-sub">${s.wins}W / ${s.losses}L</div>
+            </div>
+            <div class="summary-card">
+                <div class="s-label">Havi profit</div>
+                <div class="s-value ${s.totalUnits >= 0 ? 'positive' : 'negative'}">${s.totalUnits >= 0 ? '+' : ''}${s.totalUnits.toFixed(2)}</div>
+                <div class="s-sub ${s.totalUnits >= 0 ? 'positive' : 'negative'}">${s.totalUnits >= 0 ? '+' : ''}${Math.round(s.totalUnits * 50000).toLocaleString('hu-HU')} Ft</div>
+            </div>
+            <div class="summary-card">
+                <div class="s-label">ROI</div>
+                <div class="s-value ${s.roi >= 0 ? 'positive' : 'negative'}">${s.roi >= 0 ? '+' : ''}${s.roi.toFixed(1)}%</div>
+            </div>
+        `;
+        summaryEl.style.gridTemplateColumns = 'repeat(4, 1fr)';
+        document.getElementById('summaryModeLabel').textContent = formatMonth(ym);
+        document.getElementById('summaryModeBar').style.display = 'flex';
+    }
+
+    function resetSummaryMode() {
+        _activeSummaryMonth = null;
+        document.getElementById('summaryModeBar').style.display = 'none';
+        renderSummary(_currentFilteredBets, _currentAllBets);
+        // Bezárja az összes hónapot
+        document.querySelectorAll('.month-block.open').forEach(el => el.classList.remove('open'));
     }
 
     render();
