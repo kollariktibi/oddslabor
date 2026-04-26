@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const el = document.getElementById('memberCount');
     if (!el) return;
-    const target = 450;
+    const target = 1000;
     const duration = 1500;
     const start = performance.now();
     function update(now) {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const current = Math.floor(eased * target);
         el.textContent = current + '+';
         if (progress < 1) requestAnimationFrame(update);
-        else el.textContent = '450+';
+        else el.textContent = '1000+';
     }
     requestAnimationFrame(update);
 });
