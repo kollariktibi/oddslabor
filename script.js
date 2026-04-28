@@ -335,3 +335,16 @@ function declineCookies() {
 setTimeout(() => {
     showCookieBanner();
 }, 1000);
+
+// Show more reviews toggle
+function toggleMoreReviews() {
+    const extras = document.querySelectorAll('.review-extra');
+    const btn = document.getElementById('reviewsMoreBtn');
+    const isHidden = extras[0].style.display === 'none';
+
+    extras.forEach(card => {
+        card.style.display = isHidden ? 'block' : 'none';
+    });
+
+    btn.textContent = isHidden ? 'Kevesebb mutatása' : 'Több mutatása';
+}
