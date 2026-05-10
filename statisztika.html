@@ -1114,12 +1114,12 @@
     // ============================================================
 
     let currentTab = 'vip';
-    let filters = { result: 'all', stake: 'all', odds: 'all', type: 'all' };
+    let filters = { result: 'all', stake: 'all', odds: 'all', type: 'all', dateFrom: '', dateTo: '' };
     let filterPanelOpen = false;
 
     function switchTab(tab) {
         currentTab = tab;
-        filters = { result: 'all', stake: 'all', odds: 'all', type: 'all' };
+        filters = { result: 'all', stake: 'all', odds: 'all', type: 'all', dateFrom: '', dateTo: '' };
         document.querySelectorAll('.tab-btn').forEach((btn, i) => {
             btn.classList.toggle('active', (i === 0 && tab === 'vip') || (i === 1 && tab === 'free'));
         });
@@ -1132,7 +1132,7 @@
     }
 
     function resetFilters() {
-        filters = { result: 'all', stake: 'all', odds: 'all', type: 'all' };
+        filters = { result: 'all', stake: 'all', odds: 'all', type: 'all', dateFrom: '', dateTo: '' };
         render();
     }
 
@@ -1176,6 +1176,8 @@
             if (filters.odds === 'mid'  && (b.odds < 1.70 || b.odds >= 2.00)) return false;
             if (filters.odds === 'high' && b.odds < 2.00) return false;
             if (filters.type !== 'all' && getBetType(b.pick) !== filters.type) return false;
+            if (filters.dateFrom && b.date < filters.dateFrom) return false;
+            if (filters.dateTo && b.date > filters.dateTo) return false;
             return true;
         });
     }
@@ -1268,6 +1270,13 @@
             `<button class="filter-btn ${filters[key] === val ? 'active' : ''}" onclick="setFilter('${key}','${val}')">${label}</button>`;
         document.getElementById('filterPanel').innerHTML = `
             <div class="filter-row">
+                <span class="filter-label">Dátum</span>
+                <div class="filter-group" style="gap:10px;flex-wrap:wrap;">
+                    <input type="date" id="dateFromInput" value="${filters.dateFrom}" onchange="setFilter('dateFrom', this.value)" style="padding:8px;border:1px solid #4a5a6a;border-radius:5px;background:#0f1728;color:#b8c5d6;font-size:13px;">
+                    <input type="date" id="dateToInput" value="${filters.dateTo}" onchange="setFilter('dateTo', this.value)" style="padding:8px;border:1px solid #4a5a6a;border-radius:5px;background:#0f1728;color:#b8c5d6;font-size:13px;">
+                </div>
+            </div>
+            <div class="filter-row">
                 <span class="filter-label">Eredmény</span>
                 <div class="filter-group">
                     ${mk('result','all','Összes')}
@@ -1299,7 +1308,7 @@
         `;
 
         // Update badge
-        const activeCount = Object.values(filters).filter(v => v !== 'all').length;
+        const activeCount = Object.values(filters).filter(v => v !== 'all' && v !== '').length;
         const badge = document.getElementById('filterBadge');
         const info  = document.getElementById('filterActiveInfo');
         badge.style.display = activeCount > 0 ? 'flex' : 'none';
