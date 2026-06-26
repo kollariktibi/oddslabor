@@ -534,6 +534,7 @@
 
             <!-- Summary -->
             <div class="unit-info-bar">💡 Egységérték: <span>1 egység = 50 000 Ft</span></div>
+            <div id="summaryCards" class="summary-cards"></div>
 
             <!-- Filter toggle + panel -->
             <div class="filter-toggle-bar">
@@ -1447,7 +1448,57 @@
     }
 
     function renderSummary(filtered, allBets) {
-        // Summary cards removed from the page.
+        const stats = calcStats(filtered);
+        const bestMonth = getBestMonth(allBets);
+        const streak = getStreak(filtered);
+        const totalUnitsText = `${stats.totalUnits >= 0 ? '+' : ''}${stats.totalUnits.toFixed(2)} egység`;
+        const roiText = `${stats.roi >= 0 ? '+' : ''}${stats.roi.toFixed(1)}%`;
+        const winRateText = `${stats.winRate.toFixed(1)}%`;
+
+        const cards = [
+            {
+                label: 'Fogadások',
+                value: filtered.length,
+                sub: `${stats.decided} eldöntött`,
+                valueClass: 'neutral'
+            },
+            {
+                label: 'Teljes egység',
+                value: totalUnitsText,
+                sub: `${stats.totalStake.toFixed(2)} egység tét`,
+                valueClass: stats.totalUnits >= 0 ? 'positive' : 'negative'
+            },
+            {
+                label: 'Nyerési arány',
+                value: winRateText,
+                sub: `${stats.wins}W / ${stats.losses}L`,
+                valueClass: stats.winRate >= 50 ? 'positive' : 'negative'
+            },
+            {
+                label: 'ROI',
+                value: roiText,
+                sub: bestMonth ? `Legjobb hónap: ${bestMonth.label}` : 'Nincs adat',
+                valueClass: stats.roi >= 0 ? 'positive' : 'negative'
+            }
+        ];
+
+        const summaryCards = document.getElementById('summaryCards');
+        if (summaryCards) {
+            summaryCards.innerHTML = cards.map(card => `
+                <div class="summary-card">
+                    <div class="s-label">${card.label}</div>
+                    <div class="s-value ${card.valueClass}">${card.value}</div>
+                    <div class="s-sub ${card.valueClass === 'positive' ? 'positive' : card.valueClass === 'negative' ? 'negative' : ''}">${card.sub}</div>
+                </div>
+            `).join('');
+        }
+
+        if (streak.count > 0) {
+            const streakInfo = document.getElementById('filterActiveInfo');
+            if (streakInfo && !streakInfo.textContent) {
+                streakInfo.textContent = `${streak.count} egymást követő ${streak.type === 'win' ? 'nyerés' : 'vesztés'}`;
+            }
+        }
     }
 
     function renderFilters() {
@@ -1489,7 +1540,6 @@
                     ${mk('odds','high','2.00+')}
                 </div>
             </div>
-            <div id="breakdownSection" style="margin-top:20px"></div>
         `;
 
         // Update badge
@@ -1502,64 +1552,8 @@
     }
 
 
-    function breakdownStats(bets, groupFn, groups) {
-        return groups.map(g => {
-            const sub = bets.filter(b => groupFn(b) === g.key);
-            const s = calcStats(sub);
-            return { label: g.label, count: sub.length, winRate: s.winRate, units: s.totalUnits, roi: s.roi };
-        });
-    }
-
     function renderBreakdown(filtered) {
-        const oddsGroups = [
-            { key: 'low',  label: '1.40 – 1.69' },
-            { key: 'mid',  label: '1.70 – 1.99' },
-            { key: 'high', label: '2.00+' },
-        ];
-        const stakeGroups = [
-            { key: 'small',  label: '≤ 1u' },
-            { key: 'medium', label: '1.5 – 2u' },
-            { key: 'big',    label: '≥ 3u' },
-        ];
-        const oddsGroupFn = b => {
-            if (b.odds < 1.70) return 'low';
-            if (b.odds < 2.00) return 'mid';
-            return 'high';
-        };
-        const stakeGroupFn = b => {
-            if (b.stake <= 1.0) return 'small';
-            if (b.stake <= 2.0) return 'medium';
-            return 'big';
-        };
-
-        const tableHTML = (rows) => `
-            <table class="breakdown-table">
-                <thead><tr><th>Kategória</th><th>Fogadás</th><th>Találat%</th><th>Egység</th><th>ROI</th></tr></thead>
-                <tbody>
-                    ${rows.map(r => `
-                    <tr>
-                        <td>${r.label}</td>
-                        <td>${r.count}</td>
-                        <td>${r.count ? r.winRate.toFixed(1)+'%' : '-'}</td>
-                        <td class="${r.units >= 0 ? 'bd-pos' : 'bd-neg'}">${r.count ? (r.units >= 0 ? '+' : '') + r.units.toFixed(2) : '-'}</td>
-                        <td class="${r.roi >= 0 ? 'bd-pos' : 'bd-neg'}">${r.count ? (r.roi >= 0 ? '+' : '') + r.roi.toFixed(1)+'%' : '-'}</td>
-                    </tr>`).join('')}
-                </tbody>
-            </table>`;
-
-        const oddsData  = breakdownStats(filtered, oddsGroupFn, oddsGroups);
-        const stakeData = breakdownStats(filtered, stakeGroupFn, stakeGroups);
-
-        document.getElementById('breakdownSection').innerHTML = `
-            <div class="breakdown-card">
-                <div class="breakdown-title">Odds sáv szerint</div>
-                ${tableHTML(oddsData)}
-            </div>
-            <div class="breakdown-card">
-                <div class="breakdown-title">Tét méret szerint</div>
-                ${tableHTML(stakeData)}
-            </div>
-        `;
+        // Partial statistics block removed from the page.
     }
 
     let _currentFilteredBets = [];
@@ -1575,7 +1569,6 @@
         const summaryModeBar = document.getElementById('summaryModeBar');
         if (summaryModeBar) summaryModeBar.style.display = 'none';
 
-        // Group filtered by month
         const byMonth = {};
         filtered.forEach(b => {
             const ym = b.date.slice(0, 7);
@@ -1586,12 +1579,60 @@
 
         renderSummary(filtered, allBets);
         renderFilters();
-        renderBreakdown(filtered);
 
-        // Monthly accordion removed from the page.
         const monthsEl = document.getElementById('monthlyBlocks');
         if (monthsEl) {
-            monthsEl.innerHTML = '';
+            monthsEl.innerHTML = months.map(ym => {
+                const monthBets = byMonth[ym];
+                const stats = calcStats(monthBets);
+                const isOpen = _activeSummaryMonth === ym;
+                const title = formatMonth(ym);
+                return `
+                    <div class="month-block ${isOpen ? 'open' : ''}" id="month-${ym}">
+                        <div class="month-header" onclick="toggleMonth('month-${ym}')">
+                            <div class="month-title">${title}</div>
+                            <div class="month-meta">
+                                <div class="month-stat"><span>${monthBets.length}</span> fogadás</div>
+                                <div class="month-stat"><span>${stats.wins}W</span> / <span>${stats.losses}L</span></div>
+                                <div class="month-profit ${stats.totalUnits >= 0 ? 'pos' : 'neg'}">${stats.totalUnits >= 0 ? '+' : ''}${stats.totalUnits.toFixed(2)} u</div>
+                                <div class="month-toggle">+</div>
+                            </div>
+                        </div>
+                        <div class="bets-table-wrap">
+                            <table class="bets-table">
+                                <thead>
+                                    <tr>
+                                        <th>Dátum</th>
+                                        <th>Meccs / Tipp</th>
+                                        <th>Odds</th>
+                                        <th>Tét</th>
+                                        <th>Eredmény</th>
+                                        <th>Egység</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${monthBets.map(b => {
+                                        const resultText = b.unit === 0 ? 'VISSZA' : (b.unit > 0 ? 'NYERT' : 'VESZÍTETT');
+                                        const unitText = `${b.unit > 0 ? '+' : ''}${b.unit.toFixed(2)} egység`;
+                                        const dateText = b.date.slice(5).replace('-', '.');
+                                        return `
+                                            <tr>
+                                                <td class="bet-date">${dateText}</td>
+                                                <td>
+                                                    <div class="bet-match">${b.match}</div>
+                                                    <div class="bet-pick">${b.pick || '-'}</div>
+                                                </td>
+                                                <td class="bet-odds">@${b.odds.toFixed(2)}</td>
+                                                <td class="bet-stake">${b.stake.toFixed(2)} egység</td>
+                                                <td class="${resultText === 'NYERT' ? 'result-badge win' : resultText === 'VESZÍTETT' ? 'result-badge loss' : 'result-badge push'}">${resultText}</td>
+                                                <td class="${b.unit > 0 ? 'bet-unit win' : b.unit < 0 ? 'bet-unit loss' : 'bet-unit push'}">${unitText}</td>
+                                            </tr>`;
+                                    }).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>`;
+            }).join('');
         }
     }
 
