@@ -1583,7 +1583,12 @@
         const monthsEl = document.getElementById('monthlyBlocks');
         if (monthsEl) {
             monthsEl.innerHTML = months.map(ym => {
-                const monthBets = byMonth[ym];
+                const monthBets = byMonth[ym].slice().sort((a, b) => {
+                    if (currentTab === 'vip' && ym === '2026-06') {
+                        return b.date.localeCompare(a.date);
+                    }
+                    return a.date.localeCompare(b.date);
+                });
                 const stats = calcStats(monthBets);
                 const isOpen = _activeSummaryMonth === ym;
                 const title = formatMonth(ym);
